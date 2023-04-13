@@ -46,3 +46,67 @@ end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
+gem 'pg'
+gem 'cssbundling-rails'
+gem 'simple_form'
+gem 'yard'
+gem 'friendly_id'
+
+group :development do
+  gem 'byebug'
+  gem 'pry'
+  gem 'pry-rails'
+  gem 'bullet'
+  gem 'rubocop'
+  gem 'letter_opener'
+  gem 'rubocop', require: false
+  gem 'rubocop-performance', require: false
+  gem 'rubocop-rails', require: false
+  gem 'rubocop-rspec', require: false
+end
+
+group :development, :test do
+  gem 'rspec'
+  gem 'rspec-rails'
+  gem 'factory_bot_rails'
+  gem 'faker'
+  gem 'shoulda-matchers'
+  gem 'capybara'
+  gem 'guard'
+  gem 'guard-livereload'
+  gem 'timecop'
+  gem 'webmock'
+  gem 'formulaic'
+end
+gem 'pg'
+gem 'cssbundling-rails'
+gem 'simple_form'
+gem 'yard'
+gem 'friendly_id'
+
+group :development do
+  gem 'byebug'
+  gem 'pry'
+  gem 'pry-rails'
+  gem 'bullet'
+  gem 'rubocop'
+  gem 'letter_opener'
+  gem 'rubocop', require: false
+  gem 'rubocop-performance', require: false
+  gem 'rubocop-rails', require: false
+  gem 'rubocop-rspec', require: false
+end
+
+group :development, :test do
+  gem 'rspec'
+  gem 'rspec-rails'
+  gem 'factory_bot_rails'
+  gem 'faker'
+  gem 'shoulda-matchers'
+  gem 'capybara'
+  gem 'guard'
+  gem 'guard-livereload'
+  gem 'timecop'
+  gem 'webmock'
+  gem 'formulaic'
+end
