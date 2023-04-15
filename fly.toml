@@ -1,0 +1,8 @@
+# fly.toml file generated for helpotters on 2023-04-15T01:54:05-07:00
+
+app = "helpotters"
+primary_region = "iad"
+
+[[statics]]
+  guest_path = "/rails/public"
+  url_prefix = "/"
