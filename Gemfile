@@ -75,3 +75,4 @@ group :development, :test do
   gem 'timecop'
   gem 'webmock'
 end
+gem 'avo'
