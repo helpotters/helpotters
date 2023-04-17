@@ -1,84 +1,142 @@
-# syntax = docker/dockerfile:1
+# syntax = docker/dockerfile:experimental
 
-# Make sure RUBY_VERSION matches the Ruby version in .ruby-version and Gemfile
+# Dockerfile used to build a deployable image for a Rails application.
+# Adjust as required.
+#
+# Common adjustments you may need to make over time:
+#  * Modify version numbers for Ruby, Bundler, and other products.
+#  * Add library packages needed at build time for your gems, node modules.
+#  * Add deployment packages needed by your application
+#  * Add (often fake) secrets needed to compile your assets
+
+#######################################################################
+
+# Learn more about the chosen Ruby stack, Fullstaq Ruby, here:
+#   https://github.com/evilmartians/fullstaq-ruby-docker.
+#
+# We recommend using the highest patch level for better security and
+# performance.
+
 ARG RUBY_VERSION=3.1.0
-FROM ruby:$RUBY_VERSION-slim as base
+ARG VARIANT=jemalloc-bullseye-slim
+FROM quay.io/evl.ms/fullstaq-ruby:${RUBY_VERSION}-${VARIANT} as base
 
 LABEL fly_launch_runtime="rails"
 
-# Rails app lives here
-WORKDIR /rails
+ARG BUNDLER_VERSION=2.3.5
+ARG NODE_VERSION=18
 
-# Set production environment
-ENV RAILS_ENV="production" \
-    BUNDLE_WITHOUT="development:test" \
-    BUNDLE_DEPLOYMENT="1"
+ARG RAILS_ENV=production
+ENV RAILS_ENV=${RAILS_ENV}
 
-# Update gems and bundler
+ENV RAILS_SERVE_STATIC_FILES true
+ENV RAILS_LOG_TO_STDOUT true
+
+ARG BUNDLE_WITHOUT=development:test
+
+ARG BUNDLE_PATH=vendor/bundle
+ENV BUNDLE_PATH ${BUNDLE_PATH}
+ENV BUNDLE_WITHOUT ${BUNDLE_WITHOUT}
+
+RUN mkdir /app
+WORKDIR /app
+RUN mkdir -p tmp/pids
+
 RUN gem update --system --no-document && \
-    gem install -N bundler
+    gem install -N bundler -v ${BUNDLER_VERSION}
+
+# Ensure we install an up-to-date version of Node
+# See https://github.com/yarnpkg/yarn/issues/2888
+RUN curl -sL https://deb.nodesource.com/setup_18.x | bash -
+
+# Ensure latest packages for Yarn
+RUN curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | apt-key add -
+RUN echo "deb https://dl.yarnpkg.com/debian/ stable main" | tee /etc/apt/sources.list.d/yarn.list
+
+# Allow apt to work with https-based sources
+RUN apt-get update -yqq && apt-get install -yqq --no-install-recommends \
+    nodejs \
+    yarn
+
+COPY package.json ./
+COPY yarn.* ./
+
+RUN yarn install
+RUN yarn --version
+
+#######################################################################
+
+# install packages only needed at build time
+
+FROM base as build_deps
+
+ARG BUILD_PACKAGES="git build-essential libpq-dev wget vim curl gzip xz-utils libsqlite3-dev"
+ENV BUILD_PACKAGES ${BUILD_PACKAGES}
+
+RUN --mount=type=cache,id=dev-apt-cache,sharing=locked,target=/var/cache/apt \
+    --mount=type=cache,id=dev-apt-lib,sharing=locked,target=/var/lib/apt \
+    apt-get update -qq && \
+    apt-get install --no-install-recommends -y ${BUILD_PACKAGES} \
+    && rm -rf /var/lib/apt/lists /var/cache/apt/archives
 
 
-# Throw-away build stage to reduce size of final image
-FROM base as build
-
-# Install packages needed to build gems and node modules
-RUN apt-get update -qq && \
-    apt-get install --no-install-recommends -y build-essential curl libpq-dev node-gyp pkg-config python-is-python3
-
-# Install JavaScript dependencies
-ARG NODE_VERSION=19.8.1
-ARG YARN_VERSION=latest
-ENV PATH=/usr/local/node/bin:$PATH
-RUN curl -sL https://github.com/nodenv/node-build/archive/master.tar.gz | tar xz -C /tmp/ && \
-    /tmp/node-build-master/bin/node-build "${NODE_VERSION}" /usr/local/node && \
-    corepack enable && \
-    corepack prepare yarn@$YARN_VERSION --activate && \
-    rm -rf /tmp/node-build-master
-
-# Install application gems
-COPY --link Gemfile Gemfile.lock ./
-RUN bundle install && \
-    bundle exec bootsnap precompile --gemfile && \
-    rm -rf ~/.bundle/ $BUNDLE_PATH/ruby/*/cache $BUNDLE_PATH/ruby/*/bundler/gems/*/.git
-
-# Install node modules
-COPY --link package.json yarn.lock ./
-RUN yarn install --frozen-lockfile
-
-# Copy application code
-COPY --link . .
-
-# Precompile bootsnap code for faster boot times
-RUN bundle exec bootsnap precompile app/ lib/
-
-# Precompiling assets for production without requiring secret RAILS_MASTER_KEY
-RUN SECRET_KEY_BASE=DUMMY ./bin/rails assets:precompile
+#######################################################################
+#######################################################################
+#######################################################################
 
 
-# Final stage for app image
+# install gems
+
+FROM build_deps as gems
+
+COPY Gemfile* ./
+RUN bundle install &&  rm -rf vendor/bundle/ruby/*/cache
+
+
+# install yarn packages
+#######################################################################
+
+# install deployment packages
+
 FROM base
 
-# Install packages needed for deployment
-RUN apt-get update -qq && \
-    apt-get install --no-install-recommends -y postgresql-client && \
-    rm -rf /var/lib/apt/lists /var/cache/apt/archives
+ARG DEPLOY_PACKAGES="postgresql-client file vim curl gzip libsqlite3-0"
+ENV DEPLOY_PACKAGES=${DEPLOY_PACKAGES}
 
-# Run and own the application files as a non-root user for security
-RUN useradd rails --home /rails --shell /bin/bash
-USER rails:rails
+RUN --mount=type=cache,id=prod-apt-cache,sharing=locked,target=/var/cache/apt \
+    --mount=type=cache,id=prod-apt-lib,sharing=locked,target=/var/lib/apt \
+    apt-get update -qq && \
+    apt-get install --no-install-recommends -y \
+    ${DEPLOY_PACKAGES} \
+    && rm -rf /var/lib/apt/lists /var/cache/apt/archives
 
-# Copy built artifacts: gems, application
-COPY --from=build /usr/local/bundle /usr/local/bundle
-COPY --from=build --chown=rails:rails /rails /rails
+# copy installed gems
+COPY --from=gems /app /app
+COPY --from=gems /usr/lib/fullstaq-ruby/versions /usr/lib/fullstaq-ruby/versions
+COPY --from=gems /usr/local/bundle /usr/local/bundle
 
-# Deployment options
-ENV RAILS_LOG_TO_STDOUT="1" \
-    RAILS_SERVE_STATIC_FILES="true"
+#######################################################################
 
-# Entrypoint prepares the database.
-ENTRYPOINT ["/rails/bin/docker-entrypoint"]
+# Deploy your application
+COPY . .
+
+# Adjust binstubs to run on Linux and set current working directory
+RUN chmod +x /app/bin/* && \
+    sed -i 's/ruby.exe\r*/ruby/' /app/bin/* && \
+    sed -i '/^#!/aDir.chdir File.expand_path("..", __dir__)' /app/bin/*
+
+# The following enable assets to precompile on the build server.  Adjust
+# as necessary.  If no combination works for you, see:
+# https://fly.io/docs/rails/getting-started/existing/#access-to-environment-variables-at-build-time
+ENV SECRET_KEY_BASE 1
+# ENV AWS_ACCESS_KEY_ID=1
+# ENV AWS_SECRET_ACCESS_KEY=1
+
+RUN yarn run build
+RUN bin/rails assets:clobber
+RUN bin/rails assets:precompile
+
 
 # Start the server by default, this can be overwritten at runtime
-EXPOSE 3000
+ENV PORT 8080
 CMD ["./bin/rails", "server"]
