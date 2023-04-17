@@ -16,10 +16,6 @@
             <a href="#" class="nes-badge">
                 <span class="is-error text-sm">Web Design</span>
             </a>
-
-            <button class="btn btn-primary btn-large">
-                <%= link_to "Download Resume" , '/resume.pdf' , download: "helpotters_resume" %>
-            </button>
         </div>
 
         <p class="pt-16 mb-5 text-lg">I specialize in coding modern Rails apps using RoR, Hotwire, Turbo, and
@@ -29,20 +25,12 @@
 
     <div class="text-center p-4">
         <!-- Balloon 'is-dark'  -->
-        <div class="nes-container is-rounded is-dark text-left p-8">
-            <p> This website is also an online shop. Are you interested in buying stickers?</p>
+        <div class="nes-container is-dark is-warning text-center p-8 gap-2">
+            <p class="text-left">This website is currently a work-in-progress. Please refer to my resume for now.</p>
 
-            <div style="background-color:#212529; padding: 1rem 0;">
-                <label>
-                    <input type="radio" class="nes-radio is-dark" name="answer-dark" checked />
-                    <span>Yes</span>
-                </label>
-
-                <label>
-                    <input type="radio" class="nes-radio is-dark" name="answer-dark" />
-                    <span>No</span>
-                </label>
-            </div>
+            <button class="btn btn-primary btn-large">
+                <%= link_to "Download Resume" , '/resume.pdf' , download: "helpotters_resume" ,
+                    class: "btn btn-primary btn-large" %>
         </div>
 
     </div>
