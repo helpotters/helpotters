@@ -1,152 +1,123 @@
-<section id="experience" class="gap-8 px-80">
-    <h2 class="text-5xl py-16">
-        <i class="nes-icon coin is-medium"></i>
-        Professional Work
-    </h2>
-    <div id="adsinsights" class="card shadow-xl p-20">
-        <div class="card-body gap-4">
-            <div class="card-title">
-                <h3 class="text-xl">AdsInsights</h3>
-                <a href="#" class="nes-badge px-8">
-                    <span class="is-error text-sm">Consultation</span>
-                </a>
-            </div>
-            <br />
-            <div class="nes-container is-dark with-title">
-                <p class="title">Consultation</p>
-                <p>Consulted client on upgrading legacy Rails App to modern standards.
-                    Also, taught developer how to use Hotwire + Turbo to speed up the application's resposne
-                    times.
-                </p>
-            </div>
-
-            <!-- <div class="nes-container is-dark with-title">
-                                <p class="title">Reference</p>
-                                <p>Sam Ruby @samruby</p>
-                            </div> -->
-        </div>
-    </div>
-    <div id="avohq" class="card shadow-xl p-20">
-        <div class="card-body">
-            <div class="card-title">
-                <h3 class="text-xl">avohq CMS</h3>
-                <a href="#" class="nes-badge px-8">
-                    <span class="is-error text-sm">Contract</span>
-                </a>
-            </div>
-            <div class="nes-container is-dark with-title">
-                <p class="title">My Contribution</p>
-                <p>Added a GPS coordinates display via the Mapbox API</p>
-            </div>
-
-            <div class="nes-container is-dark is-rounded">
-                <strong>References</strong>
-                <p>Adrian Marin @adrianthedev</p>
-            </div>
-
-        </div>
-    </div>
-    <div id="fly" class="card shadow-xl p-20">
-        <div class="card-body gap-4">
-            <div class="card-title">
-                <h3 class="text-xl">Fly.io</h3>
-
-                <a href="#" class="nes-badge px-8">
-                    <span class="is-error text-sm">Contribution</span>
-                </a>
-            </div>
-            <br />
-            <div class="nes-container is-dark with-title">
-                <p class="title">My Contribution</p>
-                <p>Fly.io is a distributed hosting service used by RoR teams. I coded the Rails API-only
-                    deployment detection feature on their <code>flyctl</code> cli tool.</p>
-            </div>
-
-            <div class="nes-container is-dark with-title">
-                <p class="title">Reference</p>
-                <p>Sam Ruby @samruby</p>
-            </div>
-            <div class="lists">
-                <ul class="nes-list is-disc">
-                    <li>Ruby/Rails.</li>
-                    <li>Thor</li>
-                </ul>
-            </div>
-        </div>
-    </div>
-
-    <h2 class="text-5xl py-16">
-        <i class="nes-logo"></i>
-        Personal Projects
-    </h2>
-
-    <div id="whenarewefree" class="card shadow-xl p-20">
-        <div class="card-body gap-4">
-            <div class="card-title">
-                <h3 class="text-xl">whenarewefree</h3>
-
-                <a href="#" class="nes-badge px-8">
-                    <span class="is-error text-sm">Personal</span>
-                </a>
-            </div>
-            <br />
-            <div class="nes-container is-dark with-title">
-                <p class="title">Synopsis:</p>
-                <p>A scheduling site to find availability in 10s.
-                    Notifies users via email.</p>
-            </div>
-
-            <div class="nes-container is-dark with-title">
-                <p class="title">Tech Used</p>
-                <div class="lists">
-                    <ul class="nes-list is-disc px-8">
-                        <li>Ruby/Rails.</li>
-                        <li>Figma</li>
-                        <li>Docker</li>
-                        <li>CI/CD</li>
-                        <li>Hotwire + Turbo + Stimulus</li>
-                    </ul>
+<section id="experience" class="gap-4 px-80">
+    <%= render partial: "section_header" , locals: {count: 2, title: "Professional Experience" } %>
+        <div id="adsinsights" class="card shadow-xl p-20">
+            <div class="card-body gap-4">
+                <div class="card-title">
+                    <h3 class="text-xl">AdsInsights</h3>
+                    <a href="#" class="nes-badge px-8">
+                        <span class="is-error text-sm">Consultation</span>
+                    </a>
+                </div>
+                <br />
+                <div class="nes-container is-dark with-title">
+                    <p class="title">Consultation</p>
+                    <p>Consulted client on upgrading legacy Rails App to modern standards.
+                        Also, taught developer how to use Hotwire + Turbo to speed up the application's resposne
+                        times.
+                    </p>
                 </div>
             </div>
-            <button type="button" class="nes-btn is-primary"
-                onclick="document.getElementById('dialog-default').showModal();">
-                View preview
-            </button>
         </div>
-    </div>
-    <div id="blackpink" class="card card-side shadow-xl p-20">
-        <div class="card-body gap-4">
-            <div class="card-title">
-                <h3 class="text-xl">BLACKPINK</h3>
-
-                <a href="#" class="nes-badge px-8">
-                    <span class="is-error text-sm">Personal</span>
-                </a>
-            </div>
-            <br />
-            <div class="nes-container is-dark with-title">
-                <p class="title">Synopsis</p>
-                <p>Partnered with Ticketmaster.
-                    Locates the nearest venue and events for a kpop group.</p>
-            </div>
-
-            <div class="nes-container is-dark with-title">
-                <p class="title">Tech Used</p>
-                <div class="lists">
-                    <ul class="nes-list is-disc px-8">
-                        <li>Ruby/Rails.</li>
-                        <li>AnimeJS</li>
-                        <li>Figma</li>
-                        <li>GraphQL</li>
-                        <li>GeoLocation</li>
-                    </ul>
+        <div id="avohq" class="card shadow-xl p-20">
+            <div class="card-body">
+                <div class="card-title">
+                    <h3 class="text-xl">avohq CMS</h3>
+                    <a href="#" class="nes-badge px-8">
+                        <span class="is-error text-sm">Contract</span>
+                    </a>
+                </div>
+                <div class="nes-container is-dark with-title">
+                    <p class="title">My Contribution</p>
+                    <p>Added a GPS coordinates display via the Mapbox API</p>
                 </div>
             </div>
-
-            <button type="button" class="nes-btn is-primary"
-                onclick="document.getElementById('dialog-default').showModal();">
-                View preview
-            </button>
         </div>
-    </div>
+        <div id="fly" class="card shadow-xl p-20">
+            <div class="card-body gap-4">
+                <div class="card-title">
+                    <h3 class="text-xl">Fly.io</h3>
+
+                    <a href="#" class="nes-badge px-8">
+                        <span class="is-error text-sm">Contribution</span>
+                    </a>
+                </div>
+                <br />
+                <div class="nes-container is-dark with-title">
+                    <p class="title">My Contribution</p>
+                    <p>Fly.io is a distributed hosting service used by RoR teams. I coded the Rails API-only
+                        deployment detection feature on their <code>flyctl</code> cli tool.</p>
+                </div>
+
+                <div class="nes-container is-dark with-title">
+                    <p class="title">Context</p>
+                    <p>This was an unpaid contribution during my application. It resolved multiple reports in the Fly.io
+                        forums.</p>
+                </div>
+            </div>
+        </div>
+
+        <%= render partial: "section_header" , locals: {count: 3, title: "Personal Projects" } %>
+            <div id="whenarewefree" class="card shadow-xl p-20">
+                <div class="card-body gap-4">
+                    <div class="card-title">
+                        <a href="https://whenarewefree.com">
+                            <h3 class="text-xl">whenarewefree</h3>
+                        </a>
+                        <a href="#" class="nes-badge px-8">
+                            <span class="is-error text-sm">Personal</span>
+                        </a>
+                    </div>
+                    <br />
+                    <div class="nes-container is-dark with-title">
+                        <p class="title">Synopsis:</p>
+                        <p>A scheduling site to find availability in 10s.
+                            Notifies users via email.</p>
+                    </div>
+
+                    <div class="nes-container is-dark with-title">
+                        <p class="title">Tech Used</p>
+                        <div class="lists">
+                            <ul class="nes-list is-disc px-8">
+                                <li>Ruby/Rails.</li>
+                                <li>Figma</li>
+                                <li>Docker</li>
+                                <li>CI/CD</li>
+                                <li>Hotwire + Turbo + Stimulus</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="blackpink" class="card card-side shadow-xl p-20">
+                <div class="card-body gap-4">
+                    <div class="card-title">
+                        <a href="https://isblackpinkinyourarea.com">
+                            <h3 class="text-xl">BLACKPINK</h3>
+                        </a>
+
+                        <a href="#" class="nes-badge px-8">
+                            <span class="is-error text-sm">Personal</span>
+                        </a>
+                    </div>
+                    <br />
+                    <div class="nes-container is-dark with-title">
+                        <p class="title">Synopsis</p>
+                        <p>Partnered with Ticketmaster.
+                            Locates the nearest venue and events for a kpop group.</p>
+                    </div>
+
+                    <div class="nes-container is-dark with-title">
+                        <p class="title">Tech Used</p>
+                        <div class="lists">
+                            <ul class="nes-list is-disc px-8">
+                                <li>Ruby/Rails.</li>
+                                <li>AnimeJS</li>
+                                <li>Figma</li>
+                                <li>GraphQL</li>
+                                <li>GeoLocation</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
 </section>
