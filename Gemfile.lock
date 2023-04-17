@@ -433,7 +433,6 @@ DEPENDENCIES
   spring
   timecop
   turbolinks (~> 5)
-  tzinfo-data
   web-console (>= 4.1.0)
   webmock
   yard
