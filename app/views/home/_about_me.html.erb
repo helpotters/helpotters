@@ -1,9 +1,8 @@
-<section id="about_me" class="gap-8 px-80 py-20">
-    <div class="card">
-        <div class="card-body">
-            <%= render partial: "section_header" , locals: {count: 1, title: "About Me" } %>
-
-                <div class="flex flex-row p-12">
+<section id="about_me" class="gap-2 lg:px-80 lg:py-20">
+    <%= render partial: "section_header" , locals: {count: 1, title: "About Me" } %>
+        <div class="card">
+            <div class="card-body" tabindex="0">
+                <div class="flex flex-col lg:flex-row lg:p-12">
                     <div class="flex-1 px-2" id="about_text">
                         <p class="mb-5 text-sm">
                             Hi! I'm Paul Lemus and I like creating things that help people. I began learning Ruby on
@@ -24,11 +23,10 @@
                             features or consulted on legacy applications.
                         </p>
                     </div>
-                    <div id="about_image" class="w-40 align-center">
+                    <div id="about_image invisible lg:visible" class="w-40 align-center">
                         <%= image_tag "otter.png" , class: "rounded-md w-auto h-auto shadow-4xl" %>
                     </div>
                 </div>
+            </div>
         </div>
-    </div>
-    </div>
 </section>
