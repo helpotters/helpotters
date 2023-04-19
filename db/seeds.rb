@@ -6,6 +6,8 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-project1 = Project.create(title: 'avohq.io', type: 'Contract')
+experience = Section.create(title: 'Work Experience')
+project1 = Project.create(title: 'avohq.io', subtitle: 'Contract',
+                          link: 'avohq.io', section_id: experience.id)
 project1_description = Field.create(project_id: project1.id, title: 'Contribution', body:
                                    'Added a GPS coordinates display via the Mapbox API')
