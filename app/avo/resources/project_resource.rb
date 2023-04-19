@@ -1,10 +1,16 @@
 class ProjectResource < Avo::BaseResource
-  self.title = :id
+  self.title = :title
   self.includes = []
+  self.link_to_child_resource = true
   # self.search_query = -> do
   #   scope.ransack(id_eq: params[:q], m: "or").result(distinct: false)
   # end
 
   field :id, as: :id
+  field :title, as: :text,
+                name: 'Title'
+  field :subtitle, as: :text
+
+  field :fields, as: :has_many
   # add fields here
 end

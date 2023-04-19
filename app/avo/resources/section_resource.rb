@@ -6,5 +6,6 @@ class SectionResource < Avo::BaseResource
   # end
 
   field :id, as: :id
+  field :title, as: :title
   # add fields here
 end

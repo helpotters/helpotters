@@ -108,7 +108,7 @@ Avo.configure do |config|
   #   link "Profile", path: "/avo/profile", icon: "user-circle"
   # }
   # config/initializers/avo.rb
-  Avo.configure do |config|
-    config.current_user_method = :current_user
-  end
+  # Avo.configure do |config|
+  #   config.current_user_method = :current_user
+  # end
 end
