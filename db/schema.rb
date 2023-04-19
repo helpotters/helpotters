@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2023_04_19_012640) do
+ActiveRecord::Schema.define(version: 2023_04_19_021902) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -26,11 +26,11 @@ ActiveRecord::Schema.define(version: 2023_04_19_012640) do
 
   create_table "projects", force: :cascade do |t|
     t.string "title", null: false
-    t.string "type"
     t.string "link"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.bigint "section_id", null: false
+    t.text "subtitle"
     t.index ["section_id"], name: "index_projects_on_section_id"
   end
 
@@ -38,11 +38,8 @@ ActiveRecord::Schema.define(version: 2023_04_19_012640) do
     t.string "title"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.bigint "project_id", null: false
-    t.index ["project_id"], name: "index_sections_on_project_id"
   end
 
   add_foreign_key "fields", "projects"
   add_foreign_key "projects", "sections"
-  add_foreign_key "sections", "projects"
 end
