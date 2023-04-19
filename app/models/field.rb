@@ -18,4 +18,7 @@
 #  fk_rails_...  (project_id => projects.id)
 #
 class Field < ApplicationRecord
+  validates :title, :body, :project_id, presence: true
+
+  belongs_to :project
 end

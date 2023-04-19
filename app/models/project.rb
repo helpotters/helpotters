@@ -4,8 +4,8 @@
 #
 #  id         :bigint           not null, primary key
 #  link       :string
+#  subtitle   :text
 #  title      :string           not null
-#  type       :string
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
 #  section_id :bigint           not null
@@ -19,4 +19,8 @@
 #  fk_rails_...  (section_id => sections.id)
 #
 class Project < ApplicationRecord
+  validates :title, :subtitle, :link, :section_id, presence: true
+
+  belongs_to :section
+  has_many :fields
 end
