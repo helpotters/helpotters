@@ -19,7 +19,7 @@
 #  fk_rails_...  (section_id => sections.id)
 #
 class Project < ApplicationRecord
-  validates :title, :subtitle, :link, :section_id, presence: true
+  validates :title, :subtitle, :section_id, presence: true
 
   belongs_to :section
   has_many :fields

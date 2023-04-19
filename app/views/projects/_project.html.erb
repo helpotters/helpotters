@@ -1,0 +1,32 @@
+<div class="card  shadow-xl md:p-20">
+    <div class="card-body">
+        <div class="card-title">
+            <% unless project.link.empty? %>
+                <a href="<%= project.link %>">
+                    <h3 class="text-sm lg:text-xl">
+                        <%= project.title %>
+                    </h3>
+                </a>
+                <% else %>
+                    <h3 class="text-sm lg:text-xl">
+                        <%= project.title %>
+                    </h3>
+                    <% end %>
+                        <a href="#" class="nes-badge px-8">
+                            <span class="is-error text-xs lg:text-sm">
+                                <%= project.subtitle %>
+                            </span>
+                        </a>
+        </div>
+        <% project.fields.each do |field| %>
+            <div class="nes-container is-dark with-title">
+                <p class="title text-sm lg:text-lg">
+                    <%= field.title %>
+                </p>
+                <p class="text-sm lg:text-md">
+                    <%= field.body %>
+                </p>
+            </div>
+            <% end %>
+    </div>
+</div>

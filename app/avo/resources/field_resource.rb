@@ -7,7 +7,7 @@ class FieldResource < Avo::BaseResource
 
   field :id, as: :id
   field :title, as: :text
-  field :body, as: :text
+  field :body, as: :textarea
   field :project, as: :belongs_to
   # add fields here
 end

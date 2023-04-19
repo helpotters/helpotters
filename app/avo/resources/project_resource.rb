@@ -10,7 +10,9 @@ class ProjectResource < Avo::BaseResource
   field :title, as: :text,
                 name: 'Title'
   field :subtitle, as: :text
+  field :link, as: :text
 
-  field :fields, as: :has_many
+  field :section, as: :belongs_to
+  field :fields, as: :has_many, use_resource: FieldResource, name: 'SubSection'
   # add fields here
 end

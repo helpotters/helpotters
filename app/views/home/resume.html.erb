@@ -15,10 +15,9 @@
         <%= render "about_me" %>
     </turbo-frame>
     <turbo-frame>
-        <%= render "experience" %>
-    </turbo-frame>
-    <turbo-frame>
-        <%= render "business" %>
+        <% @sections.each_with_index do |section, count| %>
+            <%= render partial: "section" , locals: {section: section, count: count + 1} %>
+        <% end %>
     </turbo-frame>
 </main>
 <a href="https://www.flaticon.com/free-icons/otter" title="otter icons">Otter icons created by Freepik - Flaticon</a>
