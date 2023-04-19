@@ -71,3 +71,5 @@ gem "dockerfile-rails", ">= 1.2", :group => :development
 gem "devise", "~> 4.9"
 
 gem "pundit", "~> 2.3"
+
+gem "annotate", "~> 3.2"
