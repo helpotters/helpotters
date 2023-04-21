@@ -4,7 +4,7 @@
 #
 #  id         :bigint           not null, primary key
 #  link       :string
-#  subtitle   :text
+#  subtitle   :string           not null
 #  title      :string           not null
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
