@@ -1,63 +1,59 @@
 <section id="about_me" class="gap-2 lg:px-40 lg:py-20 text-center items-center">
     <%= render partial: "section_header" , locals: {count: 0, title: "About Me" } %>
-        <div class="card">
-            <div class="card-body" tabindex="0">
-                <div class="flex flex-col lg:flex-row lg:p-12 items-center">
-                    <div id="about_image" class="w-80 items-center card p-2 shadow-2xl">
-                        <%= image_tag "otter.png" , class: "rounded-md w-40 h-auto shadow-4xl avatar" %>
-                            <div class="card-body items-center text-center font-inter">
-                                <h2 class="card-title font-inter">@helpotters</h2>
-                                <p>Ruby on Rails Developer</p>
-                                <p>Consultant</p>
-                                <p>Web Designer</p>
-                                <div class="flex-row">
-                                    <span class="badge">Coding</span>
-                                    <span class="badge">Design</span>
-                                    <span class="badge">ADHD</span>
-                                </div>
-                            </div>
-                            <div class="card-actions">
-                                <div class="btn-group">
-                                    <a href="https://github.com/helpotters"><button class="btn">Github</button></a>
-                                    <div class="dropdown">
-                                        <label tabindex="0" class="btn m-1">...</label>
-                                        <ul tabindex="0"
-                                            class="dropdown-content menu p-2 shadow-lg bg-[#0a192f] rounded-box w-52">
-                                            <li class="font-inter"><a href="https://linkedin/in/helpotters">LinkedIn</a>
-                                            </li>
-                                            <li class="font-inter"><a href="mailto:paullemus@protonmail.com">Email
-                                                    Me</a>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </div>
-
-                            </div>
+        <div class="flex flex-col lg:flex-row lg:p-12 items-center">
+            <div id="about_card" class="w-80 items-center card p-2 shadow-2xl">
+                <%= image_tag "otter.png" , class: "rounded-md w-40 h-auto shadow-4xl avatar" %>
+                    <div class="card-body items-center text-center font-inter">
+                        <h2 class="card-title font-inter">@helpotters</h2>
+                        <p>Ruby on Rails Developer</p>
+                        <p>Consultant</p>
+                        <p>Web Designer</p>
+                        <div class="flex-row">
+                            <span class="badge">Coding</span>
+                            <span class="badge">Design</span>
+                            <span class="badge">ADHD</span>
+                        </div>
                     </div>
-                    <div class="flex-1 px-2 py-4 text-left" id="about_text">
-                        <p class="mb-5 text-xl font-rubik">
-                            I began learning <span class="text-red-400">Ruby on
-                                Rails</span>
-                            so
-                            that I could
-                            create a better portal for my photography clients, but then realized that I enjoyed coding
-                            way
-                            more
-                            than my photography business.
-                            So, <span class="text-green-400">I closed up shop</span> and jumped into the deep end in
-                            learning
-                            full-stack web development.
+                    <div class="card-actions">
+                        <div class="btn-group">
+                            <a href="https://github.com/helpotters"><button class="btn">Github</button></a>
+                            <div class="dropdown">
+                                <label tabindex="0" class="btn m-1">...</label>
+                                <ul tabindex="0"
+                                    class="dropdown-content menu p-2 shadow-lg bg-[#0a192f] rounded-box w-52">
+                                    <li class="font-inter"><a href="https://linkedin/in/helpotters">LinkedIn</a>
+                                    </li>
+                                    <li class="font-inter"><a href="mailto:paullemus@protonmail.com">Email
+                                            Me</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
 
-                            Now I'm working on a scheduling site that helps friend-groups <span
-                                class="text-green-400">get together more reliabiliy</span>.
-                        </p>
-
-                        <p class="pt-16 mb-5 text-xl font-rubik">
-                            Now, I'm looking for <span class="text-green-400">a full-time position</span> with a small-
-                            to medium-sized dev team.
-                        </p>
                     </div>
-                </div>
+            </div>
+            <div id="about_text" class="flex-1 px-2 py-4 text-left" id="about_text">
+                <p class="mb-5 text-xl font-rubik">
+                    I began learning <span class="text-red-400">Ruby on
+                        Rails</span>
+                    so
+                    that I could
+                    create a better portal for my photography clients, but then realized that I enjoyed coding
+                    way
+                    more
+                    than my photography business.
+                    So, <span class="text-green-400">I closed up shop</span> and jumped into the deep end in
+                    learning
+                    full-stack web development.
+
+                    Now I'm working on a scheduling site that helps friend-groups <span class="text-green-400">get
+                        together more reliabiliy</span>.
+                </p>
+
+                <p class="pt-16 mb-5 text-xl font-rubik">
+                    Now, I'm looking for <span class="text-green-400">a full-time position</span> with a small-
+                    to medium-sized dev team.
+                </p>
             </div>
         </div>
 </section>
