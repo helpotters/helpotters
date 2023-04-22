@@ -73,5 +73,3 @@ gem "devise", "~> 4.9"
 gem "pundit", "~> 2.3"
 
 gem "annotate", "~> 3.2"
-
-gem "font-awesome-sass", "~> 6.4"
