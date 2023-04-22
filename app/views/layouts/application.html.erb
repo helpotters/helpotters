@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html data-theme="cupcake">
+<html data-theme="dark">
   <head>
     <title>helpotters</title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
@@ -16,9 +16,9 @@
     <script>document.documentElement.classList.add('js')</script>
     <script src="https://unpkg.com/taos@1.0.3/dist/taos.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/theme-change@2.0.2/index.js"></script>
-
   </head>
   <body>
+    <%= render partial: "navbar" %>
     <%= yield %>
   </body>
 </html>
