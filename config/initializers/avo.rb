@@ -77,6 +77,7 @@ Avo.configure do |config|
     #   500 => "#0886DE",
     #   600 => "#066BB2",
     # },
+    # },
     #   chart_colors: ["#0B8AE2", "#34C683", "#2AB1EE", "#34C6A8"],
     logo: '/assets/otter.png',
     #   placeholder: "/avo-assets/placeholder.svg",
@@ -110,4 +111,6 @@ Avo.configure do |config|
   # Avo.configure do |config|
   #   config.current_user_method = :current_user
   # end
+  # config/initializers/avo.rb
+  config.current_user_method = :current_admin
 end
