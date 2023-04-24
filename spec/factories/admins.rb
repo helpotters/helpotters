@@ -3,6 +3,7 @@
 # Table name: admins
 #
 #  id                     :bigint           not null, primary key
+#  approved               :boolean          default(FALSE), not null
 #  email                  :string           default(""), not null
 #  encrypted_password     :string           default(""), not null
 #  remember_created_at    :datetime
@@ -13,6 +14,7 @@
 #
 # Indexes
 #
+#  index_admins_on_approved              (approved)
 #  index_admins_on_email                 (email) UNIQUE
 #  index_admins_on_reset_password_token  (reset_password_token) UNIQUE
 #
