@@ -15,7 +15,8 @@
             </a>
         </div>
 
-        <p class="font-rubik pt-6 lg:pt-16 text-sm lg:text-lg">I specialize in coding modern Rails apps using RoR, Hotwire, Turbo,
+        <p class="font-rubik pt-6 lg:pt-16 text-sm lg:text-lg">I specialize in coding web applications using RoR,
+            Hotwire, Turbo,
             and
             Stimulus.
             Currently, I'm working on building a scheduling site for friend-groups.
@@ -24,8 +25,8 @@
 
     <div class="text-center p-2 lg:p-4">
         <!-- Balloon 'is-dark'  -->
-        <div class="tooltip force-open text-center p-2 lg:p-4 gap-4" data-tip="This website is currently a work-in-progress. Please refer to my resume for now.">
-
+        <div class="tooltip force-open text-center p-2 lg:p-4 gap-4"
+            data-tip="Last updated <%= File.mtime('public/resume.pdf').strftime('%Y-%m-%d') %>">
 
             <%= link_to "Download Resume" , '/resume.pdf' , download: "helpotters_resume" , class: "btn btn-primary" %>
 
