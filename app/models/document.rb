@@ -9,19 +9,19 @@
 #  updated_at :datetime         not null
 #
 class Document < ApplicationRecord
-  has_one_attached :pdf
+  has_one_attached :file
 
   after_save :transfer_to_public_directory, if: :public?
   after_destroy :remove_from_public_directory
 
   def transfer_to_public_directory
-    return unless pdf.attached?
+    return unless file.attached?
 
     # Remove existing file from the public directory if it exists
     remove_from_public_directory if File.exist?(public_file_path)
 
     # Transfer the attached file to the public directory
-    FileUtils.cp(pdf_path, public_file_path)
+    FileUtils.cp(file_path, public_file_path)
   end
 
   def remove_from_public_directory
@@ -33,15 +33,15 @@ class Document < ApplicationRecord
 
   private
 
-  def pdf_path
-    ActiveStorage::Blob.service.send(:path_for, pdf.key)
+  def file_path
+    ActiveStorage::Blob.service.send(:path_for, file.key)
   end
 
   def public_file_path
-    Rails.public_path.join(pdf_filename)
+    Rails.public_path.join(file_filename)
   end
 
-  def pdf_filename
-    "#{pdf.filename}"
+  def file_filename
+    "#{file.filename}"
   end
 end

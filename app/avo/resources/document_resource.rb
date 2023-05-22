@@ -7,5 +7,5 @@ class DocumentResource < Avo::BaseResource
 
   field :name, as: :text
   field :public, as: :boolean, name: 'Made Public'
-  field :pdf, as: :file, accept: '.pdf ', display_filename: true
+  field :file, as: :file, accept: '.pdf,.png ', display_filename: true
 end
