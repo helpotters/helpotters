@@ -1,12 +1,13 @@
-<div class="card shadow-xl md:p-10 delay-[300ms] duration-[600ms] taos:translate-x-[-200px] taos:opacity-0" data-taos-offset="100">
+<div class="card shadow-xl md:p-10 delay-[300ms] duration-[600ms] taos:translate-x-[-200px] taos:opacity-0"
+    data-taos-offset="100">
     <div class="card-body">
         <div class="card-title">
             <% unless project.link.empty? %>
-                <i class="fa-solid fa-link"></i>
-                <a href="<%= project.link %>" target="_blank">
-                    <h3 class="text-sm lg:text-xl">
-                        <%= project.title %>
-                    </h3>
+                <a href="<%= project.link %>" class="flex gap-2" target="_blank">
+                    <%= heroicon "link" , options: { class: "w-6 fill-black dark:fill-white" } %>
+                        <h3 class="text-sm lg:text-xl">
+                            <%= project.title %>
+                        </h3>
                 </a>
                 <% else %>
                     <h3 class="text-sm lg:text-xl">
