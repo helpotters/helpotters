@@ -19,6 +19,8 @@
 #  fk_rails_...  (section_id => sections.id)
 #
 class Project < ApplicationRecord
+  has_many_attached :images
+  has_one_attached :thumbnail
   validates :title, :subtitle, :section_id, presence: true
 
   belongs_to :section

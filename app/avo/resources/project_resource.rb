@@ -8,11 +8,14 @@ class ProjectResource < Avo::BaseResource
 
   field :id, as: :id
   field :title, as: :text,
-                name: 'Title'
+                name: "Title"
   field :subtitle, as: :text
   field :link, as: :text
 
+  field :images, as: :files, accept: "/iamge", display_filename: true
+  field :thumbnail, as: :file, accept: "/iamge", display_filename: true
   field :section, as: :belongs_to
-  field :fields, as: :has_many, use_resource: FieldResource, name: 'SubSection'
+  field :fields, as: :has_many, use_resource: FieldResource, name: "SubSection"
+
   # add fields here
 end

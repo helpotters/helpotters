@@ -20,6 +20,8 @@
                             </span>
                         </a>
         </div>
+        <div class="flex">
+
         <% project.fields.each do |field| %>
             <div class="container">
                 <p class="text-sm font-medium lg:text-lg">
@@ -29,6 +31,11 @@
                     <%= field.body %>
                 </p>
             </div>
-            <% end %>
+        <% end %>
+        <% if project.thumbnail.attached? %>
+            <%= image_tag project.thumbnail.variant(resize_to_limit: [100,100]), class: "rounded-lg w-20 h-20"%>
+        <% end %>
+
+        </div>
     </div>
 </div>
