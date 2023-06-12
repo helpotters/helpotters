@@ -77,3 +77,7 @@ gem "annotate", "~> 3.2"
 gem "heroicon", "~> 1.0"
 
 gem "image_processing", "~> 1.12"
+
+gem "stimulus-rails", "~> 1.2"
+
+gem "turbo-rails", "~> 1.4"

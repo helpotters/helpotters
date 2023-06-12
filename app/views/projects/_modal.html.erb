@@ -1,0 +1,11 @@
+<a href="#<%= project.id %>" class="btn btn-wide btn-xs" data-action="click->modal#open">View More</a>
+<div id="<%= project.id %>" class="modal text-white hidden" data-action="keydown.esc->modal#close" tabindex="0">
+  <form method="dialog" class="modal-box">
+    <h3 class="font-bold text-lg">Hello!</h3>
+    <p class="py-4">Press ESC key or click the button below to close</p>
+    <div class="modal-action">
+      <!-- if there is a button in div, it will close the modal -->
+      <button class="btn" data-action="click->modal#close">Close</button>
+    </div>
+  </form>
+</div>

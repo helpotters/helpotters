@@ -1,5 +1,6 @@
 <div class="card shadow-xl md:p-10 delay-[300ms] duration-[600ms] taos:translate-x-[-200px] taos:opacity-0"
-    data-taos-offset="100">
+    data-taos-offset="100"
+    data-controller="modal" data-action="keydown.esc->modal#close" data-modal-id-value="<%= project.id %>">
     <div class="card-body">
         <div class="card-title">
             <% unless project.link.empty? %>
@@ -19,9 +20,12 @@
                                 <%= project.subtitle %>
                             </span>
                         </a>
+
+            <%= turbo_frame_tag "modal" do %>
+                <%= render partial: "projects/modal", locals: { project: project } %>
+            <% end %>
         </div>
         <div class="flex">
-
         <% project.fields.each do |field| %>
             <div class="container">
                 <p class="text-sm font-medium lg:text-lg">
@@ -35,7 +39,8 @@
         <% if project.thumbnail.attached? %>
             <%= image_tag project.thumbnail.variant(resize_to_limit: [100,100]), class: "rounded-lg w-20 h-20"%>
         <% end %>
-
+        <div class="card-actions" >
+        </div>
         </div>
     </div>
 </div>
