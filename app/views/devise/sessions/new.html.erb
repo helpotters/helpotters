@@ -1,20 +1,32 @@
-<h2>Log in</h2>
+<div class="hero flex flex-col">
 
-<%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-  <div class="form-inputs">
-    <%= f.input :email,
-                required: false,
-                autofocus: true,
-                input_html: { autocomplete: "email" } %>
-    <%= f.input :password,
-                required: false,
-                input_html: { autocomplete: "current-password" } %>
-    <%= f.input :remember_me, as: :boolean if devise_mapping.rememberable? %>
+  <h2 class="text-2xl">This is my login page</h2>
+  <h3 class="text-xl">Pls return via this button <a href="/" class="btn btn-xs">Home</a></h3>
+  <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+    <div class="form-control">
+
+<label class="label" for="email"> <span class="label-text">Email</span></label>
+<%= f.input :email,
+required: false,
+label: false,
+autofocus: true,
+input_html: { autocomplete: "email", class: "input"} %>
+<label class="label" for="password"> <span class="label-text">Password</span></label>
+<%= f.input :password,
+required: false,
+label: false,
+input_html: { autocomplete: "current-password", class: "input" } %>
+<label class="label cursor-pointer">
+<span class="label-text">Remember me</span>
+<%= f.input :remember_me, as: :boolean, wrapper: false, label: false, input_html: { class: "checkbox" } if devise_mapping.rememberable? %>
+</label>
+</div>
+
+    <div class="form-actions form-control">
+      <%= f.button :submit, "Log in", class: "btn btn-primary" %>
+    </div>
+  <% end %>
+  <div class="form-control">
+    <%= render "devise/shared/links" %>
   </div>
-
-  <div class="form-actions">
-    <%= f.button :submit, "Log in" %>
-  </div>
-<% end %>
-
-<%= render "devise/shared/links" %>
+</div>
