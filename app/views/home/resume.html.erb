@@ -1,16 +1,19 @@
-<header class="hero p-8 min-h-screen lg:px-40 font-inter">
+<div id="header" class="snap-always snap-start hero p-8 min-h-screen lg:px-40 font-inter">
     <turbo-frame>
         <%= render "header" %>
     </turbo-frame>
-</header>
-<main class=" p-4 lg:p-2">
+</div>
+<div id="about_me" class="snap-always snap-start p-4 lg:p-2">
     <turbo-frame>
         <%= render "about_me" %>
     </turbo-frame>
+</div>
+
+<div id="work" class="snap-always snap-start p-4 lg:p-2">
     <turbo-frame>
         <% @sections.each_with_index do |section, count| %>
             <%= render partial: "section" , locals: {section: section, count: count + 1} %>
-                <% end %>
+        <% end %>
     </turbo-frame>
-</main>
+</div>
 <a href="https://www.flaticon.com/free-icons/otter" title="otter icons">Otter icons created by Freepik - Flaticon</a>

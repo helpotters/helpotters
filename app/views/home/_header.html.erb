@@ -1,9 +1,9 @@
 
 <div class="hero-content w-auto flex-col lg:p-2">
     <div class="lg:max-w">
-        <h1 class="lg:py-2 text-xl lg:text-1xl font-bold text-primary">Hi, my name is</h1>
-        <h1 class="lg:py-2 text-2xl lg:text-4xl font-bold text-accent-focus">Paul Lemus.</h1>
-        <p class="py-2 lg:py-6 text-sm lg:text-md">I code applications for Al Gore's internet.</p>
+        <h1 class="lg:py-2 text-2xl lg:text-1xl font-bold text-light">Hi, my name is</h1>
+        <h1 class="lg:py-2 text-4xl lg:text-6xl font-bold text-accent-focus">Paul Lemus.</h1>
+        <p class="py-2 lg:py-6 text-md lg:text-xl">I code applications for Al Gore's internet.</p>
         <div class="py-2 flex-col lg:flex-row">
             <a href="#" class="badge">
                 <span class="font-rubik font-semibold text-xs lg:text-sm">Ruby/Rails</span>
@@ -16,7 +16,7 @@
             </a>
         </div>
 
-        <p class="font-rubik pt-6 lg:pt-16 text-sm lg:text-lg">I'm a junior developer looking for my first in-house
+        <p class="font-rubik pt-6 lg:pt-10 text-sm lg:text-lg">I'm a junior developer looking for my first in-house
             position.
         </p>
         <p class="font-rubik pt-2 lg:pt-2 text-sm lg:text-lg">
@@ -25,12 +25,9 @@
     </div>
 
     <div class="text-center p-2 lg:p-4">
-        <!-- Balloon 'is-dark'  -->
         <div class="tooltip force-open text-center p-2 lg:p-4 gap-4"
             data-tip="Last updated <%= File.mtime('public/resume.pdf').strftime('%Y-%m-%d') %>">
-
             <%= link_to "Download Resume" , '/resume.pdf' , download: "helpotters_resume" , class: "btn btn-primary" %>
-
         </div>
     </div>
 

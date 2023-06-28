@@ -7,13 +7,13 @@
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
     <meta property="og:title" content="Hi, Im Paul Lemus">
+    <meta property="og:description" content="Junior Ruby on Rails dev looking for in-house position">
     <meta property="og:site_name" content="helpotters">
     <meta property="og:image" content="/preview.png">
     <meta property="og:image:type" content="image/png" />
     <meta property="og:image:width" content="1200">
     <meta property="og:image:height" content="630">
     <meta property="og:url" content="helpotters.com">
-    <meta property="og:description" content="Junior Ruby on Rails dev looking for in-house position">
     <meta property="og:type" content="website">
     <%= stylesheet_link_tag "application", media: "all", "data-turbolinks-track": "reload" %>
     <%= javascript_include_tag "application", "data-turbo-track": "reload", defer: true %>
@@ -26,10 +26,11 @@
     <script src="https://unpkg.com/taos@1.0.3/dist/taos.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/theme-change@2.0.2/index.js"></script>
 </head>
-
 <body>
     <%= render partial: "navbar" %>
+    <div class="snap-y scroll-mandatory h-screen overflow-scroll container">
         <%= yield %>
+    </div>
 </body>
 
 </html>
