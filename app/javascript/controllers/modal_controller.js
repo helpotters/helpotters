@@ -5,18 +5,22 @@ export default class extends Controller {
   static values = {
     id: String
   }
+  disconnect() {
+    console.log("Goodbye")
+  }
   connect() {
     console.log("Hello")
     let modal = document.getElementById(this.idValue)
 
   }
-  open(){
+  open() {
     let modal = document.getElementById(this.idValue)
-    console.log("clicked")
+
     modal.classList.remove("hidden")
   }
   close() {
     let modal = document.getElementById(this.idValue)
+    console.log("closing")
     modal.classList.add("hidden")
   }
 

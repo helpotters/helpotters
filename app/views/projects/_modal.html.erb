@@ -1,11 +1,25 @@
-<a href="#<%= project.id %>" class="btn btn-wide btn-xs" data-action="click->modal#open">View More</a>
-<div id="<%= project.id %>" class="modal text-white hidden" data-action="keydown.esc->modal#close" tabindex="0">
-  <form method="dialog" class="modal-box">
-    <h3 class="font-bold text-lg">Hello!</h3>
-    <p class="py-4">Press ESC key or click the button below to close</p>
-    <div class="modal-action">
-      <!-- if there is a button in div, it will close the modal -->
-      <button class="btn" data-action="click->modal#close">Close</button>
+<a href="#<%= project.id %>" class="btn lg:btn-wide btn-xs" data-action="click->modal#open">View More</a>
+<!-- <button class="btn" onclick="<%= project.id %>.showModal()"></button> -->
+<div id="<%= project.id %>" class="modal hidden text-white" data-action="keydown.esc->modal#close" tabindex="0">
+  <div method="div" class="modal-box">
+    <div class="modal-action" data-action="click->modal#close">
+      <button class="btn btn-circle">X</button>
     </div>
-  </form>
+    <h3 class="font-bold text-lg"><%= project.title %></h3>
+    <p class="py-4"></p>
+
+    <% if project.images.attached? %>
+        <div class="carousel snap-x snap-mandatory max-w-sm p-4 space-x-4 bg-neutral rounded-box overflow-x">
+            <% project.images.each_with_index do |image, i| %>
+                <div id="<%= image.id %>" class="carousel-item snap-center w-full">
+                  <div class="absolute flex justify-between transform -translate-y-1/2 left-5 right-5 top-1/2">
+                    <!-- <a href="#<%= project.images[i+1].id unless project.images[i+1].nil? %>" class="btn btn-circle">O</a>
+                         <a href="#<%= project.images[i-1].id unless project.images[i-1].nil? %>" class="btn btn-circle">P</a> -->
+                  </div>
+                  <%= image_tag url_for(image) %>
+                </div>
+            <% end %>
+        </div>
+    <% end %>
+  </div>
 </div>
