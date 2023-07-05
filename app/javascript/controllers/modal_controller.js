@@ -10,17 +10,19 @@ export default class extends Controller {
   }
   connect() {
     console.log("Hello")
-    let modal = document.getElementById(this.idValue)
-
   }
-  open() {
+  open(event) {
+    event.preventDefault(); // Prevent default anchor tag behavior
     let modal = document.getElementById(this.idValue)
 
+    modal.classList.add("modal-open")
     modal.classList.remove("hidden")
+    // Prevent history change
+    history.replaceState({}, document.title, window.location.href)
   }
   close() {
     let modal = document.getElementById(this.idValue)
-    console.log("closing")
+    modal.classList.remove("model-open")
     modal.classList.add("hidden")
   }
 

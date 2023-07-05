@@ -1,25 +1,49 @@
-<a href="#<%= project.id %>" class="btn lg:btn-wide btn-xs" data-action="click->modal#open">View More</a>
+<a href="#" class="btn lg:btn-wide btn-xs" data-action="click->modal#open">View More</a>
 <!-- <button class="btn" onclick="<%= project.id %>.showModal()"></button> -->
-<div id="<%= project.id %>" class="modal hidden text-white" data-action="keydown.esc->modal#close" tabindex="0">
-  <div method="div" class="modal-box">
-    <div class="modal-action" data-action="click->modal#close">
-      <button class="btn btn-circle">X</button>
-    </div>
-    <h3 class="font-bold text-lg"><%= project.title %></h3>
-    <p class="py-4"></p>
-
+<dialog id="<%= project.id %>" class="modal w-screen h-screen text-white" data-action="keydown.esc->modal#close"
+  tabindex="0">
+  <form method="dialog" class="modal-box w-full flex flex-col">
     <% if project.images.attached? %>
-        <div class="carousel snap-x snap-mandatory max-w-sm p-4 space-x-4 bg-neutral rounded-box overflow-x">
-            <% project.images.each_with_index do |image, i| %>
-                <div id="<%= image.id %>" class="carousel-item snap-center w-full">
-                  <div class="absolute flex justify-between transform -translate-y-1/2 left-5 right-5 top-1/2">
-                    <!-- <a href="#<%= project.images[i+1].id unless project.images[i+1].nil? %>" class="btn btn-circle">O</a>
-                         <a href="#<%= project.images[i-1].id unless project.images[i-1].nil? %>" class="btn btn-circle">P</a> -->
-                  </div>
-                  <%= image_tag url_for(image) %>
-                </div>
-            <% end %>
+      <div class="carousel snap-x snap-mandatory  p-4 space-x-4 bg-neutral rounded-box overflow-x">
+        <% project.images.each_with_index do |image, i| %>
+          <div id="<%= image.id %>" class="carousel-item snap-center w-full justify-center">
+            <%= image_tag url_for(image) %>
+            <div class="absolute flex justify-between transform -translate-y-1/2 left-5 right-5 top-1/2">
+              <% unless project.images[i-1].nil? %>
+                <a href="#<%= project.images[i - 1].id %>" class="btn btn-circle">❮</a>
+              <% end %>
+              <% unless project.images[i+1].nil? %>
+                <a href="#<%= project.images[i+1].id %>" class="btn btn-circle">❯</a>
+              <% end %>
+            </div>
+          </div>
+          <% end %>
+      </div>
+      <% end %>
+        <div class="p-4">
+          <p class="text-5xl p-2 text-teal-200">
+            <%= project.title %>
+          </p>
+          <div class="tabs tabs-boxed flex justify-center">
+            <a class="tab text-lg">Tab 1</a>
+            <a class="tab text-lg tab-active">Tab 2</a>
+            <a class="tab text-lg">Tab 3</a>
+          </div>
+          <article class="prose">
+            <% project.fields.each do |field| %>
+              <div class="container">
+                <p class="text-sm font-medium lg:text-lg">
+                  <%= field.title %>
+                </p>
+                <p class="text-sm lg:text-md">
+                  <%= field.body %>
+                </p>
+              </div>
+              <% end %>
+          </article>
+          <div class="modal-action">
+            <button class="btn btn-circle" data-action="click->modal#close">X</button>
+          </div>
         </div>
-    <% end %>
-  </div>
-</div>
+  </form>
+</dialog>
