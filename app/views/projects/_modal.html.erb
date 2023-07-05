@@ -4,16 +4,20 @@
   tabindex="0">
   <form method="dialog" class="modal-box w-full flex flex-col">
     <% if project.images.attached? %>
-      <div class="carousel snap-x snap-mandatory  p-4 space-x-4 bg-neutral rounded-box overflow-x">
+      <div class="carousel snap-x snap-mandatory p-4 space-x-8 bg-neutral rounded-box overflow-x" data-turbo="false">
         <% project.images.each_with_index do |image, i| %>
-          <div id="<%= image.id %>" class="carousel-item snap-center w-full justify-center">
+          <div id="<%= image.id %>" class="carousel-item relative snap-center w-full justify-center rounded-md hover:border-accent border-2 <%= image.id.even? ? "border-primary" : "border-secondary" %>">
             <%= image_tag url_for(image) %>
-            <div class="absolute flex justify-between transform -translate-y-1/2 left-5 right-5 top-1/2">
+            <div class="absolute justify-between flex transform -translate-y-1 bottom-0 w-full z-4" data-controller="turbosafe">
               <% unless project.images[i-1].nil? %>
-                <a href="#<%= project.images[i - 1].id %>" class="btn btn-circle">❮</a>
+                <a href="#<%= project.images[i - 1].id %>" data-action="click->turbosafe#goto"  class="btn btn-outline btn-primary -mx-4">❮</a>
+              <% else %>
+                <a href="#<%= project.images[-1].id %>" data-action="click->turbosafe#goto" class="btn btn-outline btn-primary -mx-4">❯</a>
               <% end %>
               <% unless project.images[i+1].nil? %>
-                <a href="#<%= project.images[i+1].id %>" class="btn btn-circle">❯</a>
+                <a href="#<%= project.images[i+1].id %>" data-action="click->turbosafe#goto" class="btn btn-outline btn-secondary -mx-4">❯</a>
+              <% else %>
+                <a href="#<%= project.images[0].id %>" data-action="click->turbosafe#goto" class="btn btn-outline btn-secondary -mx-4">❯</a>
               <% end %>
             </div>
           </div>
@@ -24,25 +28,20 @@
           <p class="text-5xl p-2 text-teal-200">
             <%= project.title %>
           </p>
-          <div class="tabs tabs-boxed flex justify-center">
-            <a class="tab text-lg">Tab 1</a>
-            <a class="tab text-lg tab-active">Tab 2</a>
-            <a class="tab text-lg">Tab 3</a>
-          </div>
-          <article class="prose">
+          <article class="prose p-4">
             <% project.fields.each do |field| %>
-              <div class="container">
-                <p class="text-sm font-medium lg:text-lg">
+              <div tabindex="0" class="collapse collapse-arrow border border-base-300 bg-base-200">
+                <div class="collapse-title text-xl font-medium">
                   <%= field.title %>
-                </p>
-                <p class="text-sm lg:text-md">
+                </div>
+                <div class="collapse-content"> 
                   <%= field.body %>
-                </p>
+                </div>
               </div>
-              <% end %>
+            <% end %>
           </article>
           <div class="modal-action">
-            <button class="btn btn-circle" data-action="click->modal#close">X</button>
+            <button class="btn btn-outline btn-primary -mx-4" data-action="click->modal#close">X</button>
           </div>
         </div>
   </form>
