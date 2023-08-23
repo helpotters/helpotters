@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get "sections/index"
   devise_for :admins
 
   authenticate :admin do

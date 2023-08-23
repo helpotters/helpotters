@@ -1,0 +1,14 @@
+<turbo-frame id="sections">
+    <% @sections.each_with_index do |section, count| %>
+        <% cache section do  %>
+            <section class="gap-2 lg:px-40">
+                <%= render SectionHeaderComponent.new(count: count, title: section.title ) %>
+                <% section.projects.each do |project| %>
+                    <% cache project do %>
+                        <%= render partial: "projects/project" , locals: {project: project} %>
+                    <% end %>
+                <% end %>
+            </section>
+        <% end %>
+    <% end %>
+</turbo-frame>
