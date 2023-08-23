@@ -81,3 +81,8 @@ gem "image_processing", "~> 1.12"
 gem "stimulus-rails", "~> 1.2"
 
 gem "turbo-rails", "~> 1.4"
+
+gem "ahoy_matey", "~> 4.2"
+gem "ahoy_captain", "~> 0.91"
+
+gem "geocoder", "~> 1.8"
