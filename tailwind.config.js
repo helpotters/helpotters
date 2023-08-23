@@ -17,6 +17,7 @@ module.exports = {
     extend: {
       fontFamily: {
         inter: "Inter",
+        juana: "Juana",
         rubik: "Rubik"
       }
     }
