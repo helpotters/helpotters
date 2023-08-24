@@ -4,154 +4,154 @@
 @layer base {
   @font-face {
     font-family: 'Juana';
-    src: url('/app/assets/fonts/Fontspring-DEMO-juanaalt-black.otf') format('opentype');
+    src: font_url('Fontspring-DEMO-juanaalt-black.otf') format('opentype');
     font-weight: 900;
     font-style: normal;
   }
 
   @font-face {
     font-family: 'Juana';
-    src: url('/app/assets/fonts/Fontspring-DEMO-juanaalt-bold.otf') format('opentype');
+    src: font_url('Fontspring-DEMO-juanaalt-bold.otf') format('opentype');
     font-weight: bold;
     font-style: normal;
   }
 
   @font-face {
     font-family: 'Juana';
-    src: url('/app/assets/fonts/Fontspring-DEMO-juanaalt-extralight.otf') format('opentype');
+    src: font_url('Fontspring-DEMO-juanaalt-extralight.otf') format('opentype');
     font-weight: 200;
     font-style: normal;
   }
 
   @font-face {
     font-family: 'Juana';
-    src: url('/app/assets/fonts/Fontspring-DEMO-juanaalt-extralightit.otf') format('opentype');
+    src: font_url('Fontspring-DEMO-juanaalt-extralightit.otf') format('opentype');
     font-weight: 200;
     font-style: italic;
   }
 
   @font-face {
     font-family: 'Juana';
-    src: url('/app/assets/fonts/Fontspring-DEMO-juanaalt-light.otf') format('opentype');
+    src: font_url('Fontspring-DEMO-juanaalt-light.otf') format('opentype');
     font-weight: 300;
     font-style: normal;
   }
 
   @font-face {
     font-family: 'Juana';
-    src: url('/app/assets/fonts/Fontspring-DEMO-juanaalt-lightit.otf') format('opentype');
+    src: font_url('Fontspring-DEMO-juanaalt-lightit.otf') format('opentype');
     font-weight: 300;
     font-style: italic;
   }
 
   @font-face {
     font-family: 'Juana';
-    src: url('/app/assets/fonts/Fontspring-DEMO-juanaalt-medium.otf') format('opentype');
+    src: font_url('Fontspring-DEMO-juanaalt-medium.otf') format('opentype');
     font-weight: 500;
     font-style: normal;
   }
 
   @font-face {
     font-family: 'Juana';
-    src: url('/app/assets/fonts/Fontspring-DEMO-juanaalt-regular.otf') format('opentype');
+    src: font_url('Fontspring-DEMO-juanaalt-regular.otf') format('opentype');
     font-weight: 400;
     font-style: normal;
   }
 
   @font-face {
     font-family: 'Juana';
-    src: url('/app/assets/fonts/Fontspring-DEMO-juanaalt-semibold.otf') format('opentype');
+    src: font_url('Fontspring-DEMO-juanaalt-semibold.otf') format('opentype');
     font-weight: 600;
     font-style: normal;
   }
 
   @font-face {
     font-family: 'Juana';
-    src: url('/app/assets/fonts/Fontspring-DEMO-juana-black.otf') format('opentype');
+    src: font_url('Fontspring-DEMO-juana-black.otf') format('opentype');
     font-weight: 900;
     font-style: normal;
   }
 
   @font-face {
     font-family: 'Juana';
-    src: url('/app/assets/fonts/Fontspring-DEMO-juana-bold.otf') format('opentype');
+    src: font_url('Fontspring-DEMO-juana-bold.otf') format('opentype');
     font-weight: bold;
     font-style: normal;
   }
 
   @font-face {
     font-family: 'Juana';
-    src: url('/app/assets/fonts/Fontspring-DEMO-juana-boldit.otf') format('opentype');
+    src: font_url('Fontspring-DEMO-juana-boldit.otf') format('opentype');
     font-weight: 700;
     font-style: italic;
   }
 
   @font-face {
     font-family: 'Juana';
-    src: url('/app/assets/fonts/Fontspring-DEMO-juana-extralight.otf') format('opentype');
+    src: font_url('Fontspring-DEMO-juana-extralight.otf') format('opentype');
     font-weight: 200;
     font-style: normal;
   }
 
   @font-face {
     font-family: 'Juana';
-    src: url('/app/assets/fonts/Fontspring-DEMO-juana-light.otf') format('opentype');
+    src: font_url('Fontspring-DEMO-juana-light.otf') format('opentype');
     font-weight: 300;
     font-style: normal;
   }
 
   @font-face {
     font-family: 'Juana';
-    src: url('/app/assets/fonts/Fontspring-DEMO-juana-medium.otf') format('opentype');
+    src: font_url('Fontspring-DEMO-juana-medium.otf') format('opentype');
     font-weight: 500;
     font-style: normal;
   }
 
   @font-face {
     font-family: 'Juana';
-    src: url('/app/assets/fonts/Fontspring-DEMO-juana-semibold.otf') format('opentype');
+    src: font_url('Fontspring-DEMO-juana-semibold.otf') format('opentype');
     font-weight: 600;
     font-style: normal;
   }
 
   @font-face {
     font-family: 'Juana';
-    src: url('/app/assets/fonts/Fontspring-DEMO-juana-thin.otf') format('opentype');
+    src: font_url('Fontspring-DEMO-juana-thin.otf') format('opentype');
     font-weight: 100;
     font-style: normal;
   }
 
   @font-face {
     font-family: 'Juana';
-    src: url('/app/assets/fonts/Fontspring-DEMO-juana-semiboldit.otf') format('opentype');
+    src: font_url('Fontspring-DEMO-juana-semiboldit.otf') format('opentype');
     font-weight: 600;
     font-style: italic;
   }
 
   @font-face {
     font-family: 'Juana';
-    src: url('/app/assets/fonts/Fontspring-DEMO-juana-mediumit.otf') format('opentype');
+    src: font_url('Fontspring-DEMO-juana-mediumit.otf') format('opentype');
     font-weight: 500;
     font-style: italic;
   }
 
   @font-face {
     font-family: 'Juana';
-    src: url('/app/assets/fonts/Fontspring-DEMO-juana-regularit.otf') format('opentype');
+    src: font_url('Fontspring-DEMO-juana-regularit.otf') format('opentype');
     font-weight: 400;
     font-style: italic;
   }
 
   @font-face {
     font-family: 'Juana';
-    src: url('/app/assets/fonts/Fontspring-DEMO-juanaalt-thin.otf') format('opentype');
+    src: font_url('Fontspring-DEMO-juanaalt-thin.otf') format('opentype');
     font-weight: 100;
     font-style: normal;
   }
 
   @font-face {
     font-family: 'Juana';
-    src: url('/app/assets/fonts/Fontspring-DEMO-juana-thinit.otf') format('opentype');
+    src: font_url('/app/assets/fonts/Fontspring-DEMO-juana-thinit.otf') format('opentype');
     font-weight: 100;
     font-style: italic;
   }

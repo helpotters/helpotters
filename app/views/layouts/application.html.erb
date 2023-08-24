@@ -1,36 +1,31 @@
 <!DOCTYPE html>
-<html data-theme="dark">
-
-<head>
-    <title>helpotters</title>
-    <meta name="viewport" content="width=device-width,initial-scale=1">
-    <%= csrf_meta_tags %>
-    <%= csp_meta_tag %>
-    <meta property="og:title" content="Hi, Im Paul Lemus">
-    <meta property="og:description" content="Junior Ruby on Rails dev looking for in-house position">
-    <meta property="og:site_name" content="helpotters">
-    <meta property="og:image" content="/preview.png">
-    <meta property="og:image:type" content="image/png" />
-    <meta property="og:image:width" content="1200">
-    <meta property="og:image:height" content="630">
-    <meta property="og:url" content="helpotters.com">
-    <meta property="og:type" content="website">
-    <%= stylesheet_link_tag "application", media: "all", "data-turbolinks-track": "reload" %>
-    <%= javascript_include_tag "application", "data-turbo-track": "reload", defer: true %>
-    <link href="https://cdn.jsdelivr.net/npm/daisyui@2.51.5/dist/full.css" rel="stylesheet" type="text/css" />
-    <script src="https://cdn.tailwindcss.com"></script>
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;400&family=Press+Start+2P&family=Rubik&display=swap');
-    </style>
-    <script>document.documentElement.classList.add('js')</script>
-    <script src="https://unpkg.com/taos@1.0.3/dist/taos.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/theme-change@2.0.2/index.js"></script>
-</head>
-<body>
-    <%= render partial: "navbar" %>
-    <div class="snap-y scroll-mandatory h-screen container">
-        <%= yield %>
-    </div>
-</body>
-
+<html data-theme="mytheme">
+    <head>
+        <title>helpotters</title>
+        <meta name="viewport" content="width=device-width,initial-scale=1">
+        <%= csrf_meta_tags %>
+        <%= csp_meta_tag %>
+        <meta property="og:title" content="Hi, Im Paul Lemus">
+        <meta property="og:description" content="Junior Ruby on Rails dev looking for in-house position">
+        <meta property="og:site_name" content="helpotters">
+        <meta property="og:image" content="/preview.png">
+        <meta property="og:image:type" content="image/png" />
+        <meta property="og:image:width" content="1200">
+        <meta property="og:image:height" content="630">
+        <meta property="og:url" content="helpotters.com">
+        <meta property="og:type" content="website">
+        <%= stylesheet_link_tag "application", media: "all", "data-turbolinks-track": "reload" %>
+        <%= javascript_include_tag "application", "data-turbo-track": "reload", defer: true %>
+        <style>
+         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;400&family=Press+Start+2P&family=Rubik&display=swap');
+        </style>
+        <script src="https://cdn.jsdelivr.net/npm/theme-change@2.0.2/index.js"></script>
+    <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+    </head>
+    <body class="bg-base-100">
+        <%= render partial: "navbar" %>
+        <div class="snap-y scroll-mandatory h-screen container">
+            <%= yield %>
+        </div>
+    </body>
 </html>

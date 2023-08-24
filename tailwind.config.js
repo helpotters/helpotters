@@ -1,31 +1,38 @@
 module.exports = {
-  daisyui: {
-      themes: ["light", "dark", "cupcake", "bumblebee", "emerald", "corporate", "synthwave", "retro", "cyberpunk", "valentine", "halloween", "garden", "forest", "aqua", "lofi", "pastel", "fantasy", "wireframe", "black", "luxury", "dracula", "cmyk", "autumn", "business", "acid", "lemonade", "night", "coffee", "winter"],
-    },
-  // plugins: [
-  //   require('taos/plugin')
-  // ],
- safelist: [
-    '!duration-[0ms]',
-    '!delay-[0ms]',
-    'html.js :where([class*="taos:"]:not(.taos-init))'
-  ],
-  content: {
-    transform: (content) => content.replace(/taos:/g, ''),
-  },
-  theme: {
-    extend: {
-      fontFamily: {
-        inter: "Inter",
-        juana: "Juana",
-        rubik: "Rubik"
-      }
-    }
-  },
-  content: [
-    './app/views/**/*.html.erb',
-    './app/helpers/**/*.rb',
-    './app/assets/stylesheets/**/*.css',
-    './app/javascript/**/*.js'
-  ]
+        daisyui: {
+                themes: [{
+                        mytheme: {
+                                "primary": "#FFFFFE",
+                                "secondary": "#EEBBC3",
+                                "accent": "#1DCDBC",
+                                "neutral": "#B8C1EC",
+                                "base-100": "#232946",
+                                "info": "#7EC4CF",
+                                "success": "#7EA172",
+                                "warning": "#E7A977",
+                                "error": "#D4AFB9",
+                        },
+                },],
+        },
+        theme: {
+                extend: {
+                        fontFamily: {
+                                juana: ["Juana", "serif"],
+                                inter: ["Inter", "sans-serif"],
+                                rubik: ["Rubik", "sans-serif"],
+                        },
+                },
+        },
+        content: [
+                './app/views/**/*.html.erb',
+                './app/helpers/**/*.rb',
+                './app/assets/stylesheets/**/*.css',
+                './app/javascript/**/*.js'
+        ],
+        plugins: [
+                require("daisyui"),
+                require('postcss-import'),
+                require('tailwindcss'),
+                require('autoprefixer')
+        ],
 }
