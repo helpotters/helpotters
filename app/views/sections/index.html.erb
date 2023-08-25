@@ -2,7 +2,7 @@
     <% @sections.each_with_index do |section, count| %>
         <% cache section do  %>
             <section class="justify-center lg:justify-left gap-2 lg:px-40">
-                <%= render SectionHeaderComponent.new(count: count, title: section.title) %>
+                <%= render SectionHeaderComponent.new(count: count + 1, title: section.title) %>
                 <% section.projects.each do |project| %>
                     <% cache project do %>
                         <%= render partial: "projects/project" , locals: {project: project} %>
