@@ -1,46 +1,46 @@
-<div class="card shadow-xl md:p-10 delay-[300ms] duration-[600ms] taos:translate-x-[-200px] taos:opacity-0"
-    data-taos-offset="100"
-    data-controller="modal" data-action="keydown.esc->modal#close" data-modal-id-value="<%= project.id %>">
+<div class="card shadow-xl text-left md:p-10 delay-[300ms] duration-[600ms] taos:translate-x-[-200px] taos:opacity-0"
+     data-taos-offset="100"
+     data-controller="modal" data-action="keydown.esc->modal#close" data-modal-id-value="<%= project.id %>">
     <div class="card-body">
         <div class="card-title">
             <% unless project.link.empty? %>
                 <a href="<%= project.link %>" class="flex gap-2" target="_blank">
                     <%= heroicon "link" , options: { class: "w-6 fill-black dark:fill-white" } %>
-                        <h3 class="text-sm lg:text-xl">
-                            <%= project.title %>
-                        </h3>
-                </a>
-                <% else %>
                     <h3 class="text-sm lg:text-xl">
                         <%= project.title %>
                     </h3>
-                    <% end %>
-                        <a href="#" class="badge px-8">
-                            <span class="text-xs lg:text-sm">
-                                <%= project.subtitle %>
-                            </span>
-                        </a>
+                </a>
+            <% else %>
+                <h3 class="text-sm lg:text-xl">
+                    <%= project.title %>
+                </h3>
+            <% end %>
+            <a href="#" class="badge px-8">
+                <span class="text-xs lg:text-sm">
+                    <%= project.subtitle %>
+                </span>
+            </a>
 
             <%= turbo_frame_tag "modal" do %>
                 <%= render partial: "projects/modal", locals: { project: project } %>
             <% end %>
         </div>
-        <div class="flex">
-        <% project.fields.each do |field| %>
-            <div class="container">
-                <p class="text-sm font-medium lg:text-lg">
-                    <%= field.title %>
-                </p>
-                <p class="text-sm lg:text-md">
-                    <%= field.body %>
-                </p>
+        <div class="flex flex-col gap-2">
+            <% project.fields.each do |field| %>
+                <div class="container">
+                    <p class="text-sm font-medium lg:text-lg">
+                        <%= field.title %>
+                    </p>
+                    <p class="text-sm lg:text-md">
+                        <%= field.body %>
+                    </p>
+                </div>
+            <% end %>
+            <% if project.thumbnail.attached? %>
+                <%= image_tag project.thumbnail.variant(resize_to_limit: [100,100]), class: "rounded-lg w-20 h-20"%>
+            <% end %>
+            <div class="card-actions" >
             </div>
-        <% end %>
-        <% if project.thumbnail.attached? %>
-            <%= image_tag project.thumbnail.variant(resize_to_limit: [100,100]), class: "rounded-lg w-20 h-20"%>
-        <% end %>
-        <div class="card-actions" >
-        </div>
         </div>
     </div>
 </div>
