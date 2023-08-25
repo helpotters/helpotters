@@ -1,7 +1,7 @@
 module.exports = {
         daisyui: {
                 themes: [{
-                        mytheme: {
+                        cozy: {
                                 "primary": "#FFFFFE",
                                 "secondary": "#EEBBC3",
                                 "accent": "#1DCDBC",
