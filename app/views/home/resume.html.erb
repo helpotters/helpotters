@@ -1,19 +1,19 @@
-<%= render PanelComponent.new justification: "text-center lg:text-left" do %>
-    <div id="header" class="from-snap-always snap-start hero p-8 min-h-screen lg:px-40 font-inter">
+<%= render PanelComponent.new panel: "well", justification: "text-center lg:text-left" do %>
+    <div id="header" class="hero p-8 min-h-screen lg:px-40 font-inter">
         <turbo-frame>
             <%= render "header", cached: true %>
         </turbo-frame>
     </div>
 <% end %>
-<%= render PanelComponent.new do %>
-    <div id="about_me" class="snap-always snap-start p-4 lg:p-2">
+<%= render PanelComponent.new color: "bg-base-200" do %>
+    <div id="about_me" class="p-4 lg:p-2">
         <turbo-frame>
             <%= render "about_me", cached: true %>
         </turbo-frame>
     </div>
 <% end %>
 <%= render PanelComponent.new do %>
-    <div id="work" class="snap-always snap-start p-4 lg:p-2">
+    <div id="work" class="p-4 lg:p-2">
         <turbo-frame id="sections" src="/sections/index">
             <div class="border border-blue-300 shadow rounded-md p-4 max-w-sm w-full mx-auto">
                 <div class="animate-pulse flex space-x-4">
