@@ -22,10 +22,8 @@
         <script src="https://cdn.jsdelivr.net/npm/theme-change@2.0.2/index.js"></script>
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     </head>
-    <body class="bg-base-100">
+    <body class="bg-base-100 snap-y snap-mandatory">
         <%= render partial: "navbar" %>
-        <div class="snap-y scroll-mandatory h-screen min-w-screen">
-            <%= yield %>
-        </div>
+        <%= yield %>
     </body>
 </html>
