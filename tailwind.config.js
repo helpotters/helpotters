@@ -12,6 +12,18 @@ module.exports = {
                                 "warning": "#E7A977",
                                 "error": "#D4AFB9",
                         },
+                        bright: {
+                                "primary": "#001858",
+                                "secondary": "#F582AE",
+                                "accent": "#172C66",
+                                "neutral": "#001858",
+                                "base-100": "#FEF6E4",
+                                "info": "#7EC4CF",
+                                "success": "#7EA172",
+                                "warning": "#E7A977",
+                                "error": "#D4AFB9",
+                                "alt-base": "#33272a",
+                        },
                 },],
         },
         theme: {
@@ -25,8 +37,10 @@ module.exports = {
         },
         content: [
                 './app/views/**/*.html.erb',
+                './app/components/**/*.html.erb',
                 './app/helpers/**/*.rb',
                 './app/assets/stylesheets/**/*.css',
+                './app/assets/images/*.svg',
                 './app/javascript/**/*.js'
         ],
         plugins: [
