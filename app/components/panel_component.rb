@@ -23,7 +23,7 @@ class PanelComponent < ViewComponent::Base
   private
 
   def well
-    content_tag(:div, class: "overflow-hidden rounded-lg #{color}") do
+    content_tag(:div, class: "snap-center overflow-hidden rounded-lg #{color}") do
       content_tag(:div, class: "px-4 py-5 sm:p-6 #{justification}") do
         content
       end
@@ -31,7 +31,7 @@ class PanelComponent < ViewComponent::Base
   end
 
   def narrow_constrained
-    content_tag(:div, class: "mx-auto min-w-screen px-4 sm:px-6 lg:px-8 #{color}") do
+    content_tag(:div, class: "snap-center mx-auto min-h-screen min-w-screen px-4 sm:px-6 lg:px-8 #{color}") do
       content_tag(:div, class: "mx-auto max-w-3xl #{justification}") do
         content
       end
