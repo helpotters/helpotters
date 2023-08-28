@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   get "sections/index"
   devise_for :admins
+  resources :projects
 
   authenticate :admin do
     mount AhoyCaptain::Engine => "/ahoy_captain"

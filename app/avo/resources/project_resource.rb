@@ -10,6 +10,7 @@ class ProjectResource < Avo::BaseResource
   field :title, as: :text,
                 name: "Title"
   field :subtitle, as: :text
+  field :article, as: :markdown
   field :link, as: :text
 
   field :images, as: :files, accept: "/iamge", display_filename: true

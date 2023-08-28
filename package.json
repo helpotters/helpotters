@@ -7,6 +7,7 @@
     "@rails/actioncable": "^6.0.0",
     "@rails/activestorage": "^6.0.0",
     "@rails/ujs": "^6.0.0",
+    "@tailwindcss/typography": "^0.5.9",
     "ahoy.js": "^0.4.3",
     "autoprefixer": "^10.4.15",
     "esbuild": "^0.17.16",

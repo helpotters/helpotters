@@ -44,6 +44,7 @@ module.exports = {
                 './app/javascript/**/*.js'
         ],
         plugins: [
+                require('@tailwindcss/typography'),
                 require("daisyui"),
                 require('postcss-import'),
                 require('tailwindcss'),

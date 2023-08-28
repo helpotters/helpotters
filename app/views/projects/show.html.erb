@@ -1,0 +1,15 @@
+<%= render PanelComponent.new panel: "well", justification: "px-4 lg:px-1 text-left", color: "bg-secondary" do %>
+  <div class="py-12 lg:py-32">
+    <div class="mx-auto max-w-7xl px-6 lg:px-8">
+      <div class="mx-auto max-w-2xl lg:mx-0">
+        <h2 class="font-juana text-4xl font-bold tracking-tight text-gray-900 sm:text-6xl"><%= @project.title %></h2>
+        <p class="mt-6 text-lg leading-8 text-gray-600"><%= @project.subtitle %></p>
+      </div>
+    </div>
+  </div>
+<% end %>
+<%= render PanelComponent.new panel: "well", justification: "px-4 lg:px-1 text-left", color: "bg-primary" do %>
+  <article class="mx-auto prose lg:prose-2xl text-black">
+    <%= @content.html_safe %>
+  </article>
+<% end %>

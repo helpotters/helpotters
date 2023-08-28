@@ -88,3 +88,5 @@ gem "ahoy_captain", "~> 0.91"
 gem "geocoder", "~> 1.8"
 
 gem "view_components", "~> 0.1.0"
+
+gem "redcarpet", "~> 3.6"
