@@ -5,9 +5,9 @@
             <h1 class="lg:py-2 text-5xl lg:text-9xl font-bold text-primary text-accent-focus font-juana">
                 Behold,
                 </br>
-                a portfolio.
+                <span class="font-italic">a portfolio.</span>
             </h1>
-            <p class="py-2 lg:py-6 text-md lg:text-xl font-rubik">I code applications for Al Gore's internet.</p>
+            <p class="py-2 lg:py-6 text-md lg:text-2xl font-rubik">I code applications for Al Gore's internet.</p>
 
             <!-- Badges -->
             <div class="py-2 flex-col lg:flex-row">
@@ -28,9 +28,6 @@
                     <%= link_to "Download Resume" , '/resume.pdf' , download: "helpotters_resume" , class: "btn btn-secondary text-base-100 font-rubik font-bold" %>
                 </div>
             </div>
-        </div>
-        <div class="relative w-50 lg:w-fill lg:justify-center items-center flex lg:block lg:mx-auto">
-            <%= render ArtCompositionComponent.new folder: "otters", color_mapping: { "main": "fill-base-100", "fur": "fill-secondary", "highlight": "fill-warning", "underfur": "fill-primary", "eyes": "fill-base-100"} %>
         </div>
     </div>
 
