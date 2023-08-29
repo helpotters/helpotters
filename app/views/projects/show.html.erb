@@ -9,7 +9,7 @@
   </div>
 <% end %>
 <%= render PanelComponent.new panel: "well", justification: "px-4 lg:px-1 text-left", color: "bg-primary" do %>
-  <article class="mx-auto prose lg:prose-2xl text-black">
+  <article class="mx-auto prose lg:prose-2xl text-black py-2">
     <%= @content.html_safe %>
   </article>
 <% end %>
