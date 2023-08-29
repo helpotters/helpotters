@@ -20,7 +20,9 @@
                     <%= project.subtitle %>
                 </span>
             </a>
-            <%= link_to "View More", project_path(project.id), data: { turbo: false }, class: "btn btn-secondary btn-sm" %>
+            <% unless project.article.nil? %>
+              <%= link_to "View More", project_path(project.id), data: { turbo: false }, class: "btn btn-secondary btn-sm" %>
+            <% end %>
         </div>
         <div class="flex flex-col gap-2">
             <% project.fields.each do |field| %>
