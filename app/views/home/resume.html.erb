@@ -6,11 +6,9 @@
     </div>
 <% end %>
 <%= render PanelComponent.new color: "bg-base-200" do %>
-    <div id="about_me" class="p-4 lg:p-2">
-        <turbo-frame>
-            <%= render "about_me", cached: true %>
-        </turbo-frame>
-    </div>
+    <turbo-frame>
+        <%= render "about_me", cached: true %>
+    </turbo-frame>
 <% end %>
 <%= render PanelComponent.new do %>
     <div id="work" class="p-4 lg:p-2">
@@ -33,4 +31,3 @@
         </turbo-frame>
     </div>
 <% end %>
-<a href="https://www.flaticon.com/free-icons/otter" title="otter icons">Otter icons created by Freepik - Flaticon</a>
