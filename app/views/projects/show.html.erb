@@ -1,19 +1,20 @@
-<%= render PanelComponent.new panel: "well", justification: "px-4 lg:px-1 text-left rounded-lg", color: "bg-neutral" do %>
-  <div class="py-12 lg:py-32">
-    <div class="mx-auto max-w-7xl px-6 lg:px-8">
-        <%= link_to "Back", "/#work", class: "btn btn-outline btn-primary hover:btn-outline hover:btn-secondary float-right" %>
-      <div class="mx-auto max-w-2xl lg:mx-0">
-        <p class="mt-6 text-lg leading-8 text-gray-600"><%= @project.section.title %></p>
-        <h2 class="font-juana text-4xl font-bold tracking-tight text-gray-900 sm:text-6xl"><%= @project.title %></h2>
-        <p class="mt-6 text-lg leading-8 text-gray-600"><%= @project.subtitle %></p>
+<%= render PanelComponent.new panel: "well", justification: "rounded-lg px-16 pt-4 pb-1", color: "bg-base-200" do %>
+  <header class="flex mx-auto mb-4 lg:mb-6 items-center justify-center rounded-lg justify-between pt-4 pb-1 px-2">
+    <h1 class="font-juana text-4xl font-extrabold leading-tight text-gray-900 lg:mb-6 lg:text-7xl dark:text-primary"><%= @project.title %></h1>
+    <address class="items-center mb-6 not-italic">
+      <div class="inline-flex items-center mr-3 text-sm text-gray-900 dark:text-white">
+        <%= image_tag "otter.png", class: "mr-4 w-16 h-16 rounded-full", alt: "helpotters" %>
+        <div>
+          <a href="#" rel="author" class="text-xl font-bold text-gray-900 dark:text-white">Paul Lemus</a>
+          <p class="text-base font-light text-gray-500 dark:text-gray-400">Full-stack web developer</p>
+          <p class="text-base font-light text-gray-500 dark:text-gray-400">Last updated: <time pubdate datetime="<%= @project.created_at %>" title="<%= @project.created_at.strftime("%B, #{@project.created_at.day.ordinalize}. %Y") %>"><%= @project.created_at.strftime("%b #{@project.created_at.day.ordinalize}. %Y") %></time></p>
+        </div>
       </div>
-    </div>
-  </div>
+    </address>
+  </header>
 <% end %>
-<div class="my-4">
-</div>
-<%= render PanelComponent.new panel: "well", justification: "px-4 lg:px-1 text-left rounded-lg", color: "bg-primary" do %>
-  <article class="mx-auto prose lg:prose-2xl text-black py-2">
+<%= render PanelComponent.new justification: "px-4 lg:px-1 rounded-lg", color: "" do %>
+  <article class="mt-0 mx-auto prose lg:prose-2xl prose-invert py-2 prose-headings:font-juana prose-headings:text-neutral">
     <%= @content.html_safe %>
   </article>
 <% end %>
