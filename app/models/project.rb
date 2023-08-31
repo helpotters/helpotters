@@ -24,6 +24,6 @@ class Project < ApplicationRecord
   has_one_attached :thumbnail
   validates :title, :subtitle, :section_id, presence: true
 
-  belongs_to :section
+  belongs_to :section, touch: true
   has_many :fields
 end
