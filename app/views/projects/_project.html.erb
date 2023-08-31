@@ -2,7 +2,7 @@
      data-taos-offset="100"
      data-controller="modal" data-action="keydown.esc->modal#close" data-modal-id-value="<%= project.id %>">
     <div class="card-body">
-        <div class="card-title">
+        <div class="card-title justify-between">
             <% unless project.link.empty? %>
                 <a href="<%= project.link %>" class="flex gap-2" target="_blank">
                     <%= heroicon "link" , options: { class: "w-6 fill-black dark:fill-white" } %>
@@ -21,13 +21,13 @@
                 </span>
             </a>
             <% unless project.article.nil? %>
-              <%= link_to "View More", project_path(project.id), data: { turbo: false }, class: "btn btn-secondary btn-sm" %>
+               <%= link_to "Read", project_path(project.id), data: { turbo: false }, class: "btn btn-secondary btn-sm lg:btn-md font-bold" %>
             <% end %>
         </div>
-        <div class="flex flex-col gap-2">
+        <div class="flex flex-col gap-2 space-y-2">
             <% project.fields.each do |field| %>
                 <div class="container">
-                    <p class="text-sm font-medium lg:text-lg">
+                    <p class="text-sm font-medium underline lg:text-lg">
                         <%= field.title %>
                     </p>
                     <p class="text-sm lg:text-md">
