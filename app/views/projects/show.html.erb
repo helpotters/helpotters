@@ -7,7 +7,7 @@
         <div>
           <a href="#" rel="author" class="text-xl font-bold text-gray-900 dark:text-white">Paul Lemus</a>
           <p class="text-base font-light text-gray-500 dark:text-gray-400">Full-stack web developer</p>
-          <p class="text-base font-light text-gray-500 dark:text-gray-400">Last updated: <time pubdate datetime="<%= @project.created_at %>" title="<%= @project.created_at.strftime("%B, #{@project.created_at.day.ordinalize}. %Y") %>"><%= @project.created_at.strftime("%b #{@project.created_at.day.ordinalize}. %Y") %></time></p>
+          <p class="text-base font-light text-gray-500 dark:text-gray-400">Last updated: <time pubdate datetime="<%= @project.updated_at %>" title="<%= @project.updated_at.strftime("%B, #{@project.updated_at.day.ordinalize}. %Y") %>"><%= @project.updated_at.strftime("%b #{@project.updated_at.day.ordinalize}. %Y") %></time></p>
         </div>
       </div>
     </address>
