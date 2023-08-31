@@ -1,8 +1,7 @@
 # frozen_string_literal: true
 
 class SectionHeaderComponent < ViewComponent::Base
-  def initialize(count:, title:)
-    @count = count
+  def initialize(title:)
     @title = title
   end
 end
