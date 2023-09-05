@@ -20,7 +20,7 @@
                     <%= project.subtitle %>
                 </span>
             </a>
-            <% unless project.article.nil? %>
+            <% unless project.article.nil? || project.article.empty? %>
                <%= link_to "Read", project_path(project.id), data: { turbo: false }, class: "btn btn-secondary btn-sm lg:btn-md font-bold" %>
             <% end %>
         </div>
