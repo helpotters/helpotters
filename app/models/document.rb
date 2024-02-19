@@ -12,8 +12,8 @@ class Document < ApplicationRecord
   has_one_attached :file
 
   after_save :transfer_to_public_directory, if: :public?
-  after_destroy :remove_from_public_directory
-  after_update :remove_from_public_directory, :transfer_to_public_directory
+  after_destroy :remove_from_public_directory, if: :public?
+  after_update :remove_from_public_directory, :transfer_to_public_directory, if: :public?
 
   def transfer_to_public_directory
     return unless file.attached?
