@@ -5,6 +5,7 @@
 #  id         :bigint           not null, primary key
 #  article    :text
 #  end_date   :date
+#  job_type   :text
 #  link       :string
 #  start_date :date
 #  subtitle   :string           not null
