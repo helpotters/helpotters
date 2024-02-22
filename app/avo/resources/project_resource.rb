@@ -10,6 +10,8 @@ class ProjectResource < Avo::BaseResource
   field :title, as: :text,
                 name: "Title"
   field :subtitle, as: :text
+  field :start_date, as: :date
+  field :end_date, as: :date
   field :article, as: :markdown
   field :link, as: :text
 

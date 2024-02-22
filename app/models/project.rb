@@ -4,7 +4,9 @@
 #
 #  id         :bigint           not null, primary key
 #  article    :text
+#  end_date   :date
 #  link       :string
+#  start_date :date
 #  subtitle   :string           not null
 #  title      :string           not null
 #  created_at :datetime         not null
