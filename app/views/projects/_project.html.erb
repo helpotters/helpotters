@@ -2,44 +2,55 @@
      data-taos-offset="100"
      data-controller="modal" data-action="keydown.esc->modal#close" data-modal-id-value="<%= project.id %>">
     <div class="card-body">
-        <div class="card-title justify-between">
-            <% unless project.link.empty? %>
-                <a href="<%= project.link %>" class="flex gap-2" target="_blank">
-                    <%= heroicon "link" , options: { class: "w-6 fill-black dark:fill-white" } %>
-                    <h3 class="text-sm lg:text-xl">
-                        <%= project.title %>
+        <header class="flex flex-col gap-2 py-2">
+            <div id="job-titles" class="flex justify-between items-center">
+                <h2 class="text-sm lg:text-xl font-bold font-juana text-secondary">
+                    <%= project.job_title %>
+                </h2>
+                <% unless project.link.empty? %>
+                    <a href="<%= project.link %>" class="flex gap-2" target="_blank">
+                        <%= heroicon "link" , options: { class: "w-6 fill-black dark:fill-white" } %>
+                        <h3 class="italic text-sm lg:text-xl">
+                            <%= project.company%>
+                        </h3>
+                    </a>
+                <% else %>
+                    <h3 class="italic text-sm lg:text-xl">
+                        <%= project.company %>
                     </h3>
-                </a>
-            <% else %>
-                <h3 class="text-sm lg:text-xl">
-                    <%= project.title %>
+                <% end %>
+            </div>
+            <div id="job-details" class="flex justify-between uppercase tracking-tight text-alt-base italic items-center -my-2">
+                <h3 class="text-sm lg:text-md">
+                    <%= project.job_type%>
                 </h3>
-            <% end %>
-            <a href="#" class="badge px-8">
-                <span class="text-xs lg:text-sm">
-                    <%= project.subtitle %>
-                </span>
-            </a>
-            <% unless project.article.nil? || project.article.empty? %>
-               <%= link_to "Read", project_path(project.id), data: { turbo: false }, class: "btn btn-secondary btn-sm lg:btn-md font-bold" %>
-            <% end %>
-        </div>
-        <div class="flex flex-col gap-2 space-y-2">
+                <h3 class="text-sm lg:text-md">
+                    <%= project.start_date.strftime("%B, %Y") %> -
+                    <%= project.end_date ? project.end_date.strftime("%B, %Y") : "ONGOING" %>
+                </h3>
+            </div>
+
+        </header>
+        <ul class="flex flex-col gap-2 space-y-2 font-inter">
             <% project.fields.each do |field| %>
-                <div class="container">
+                <li class="container">
                     <p class="text-sm font-medium underline lg:text-lg">
                         <%= field.title %>
                     </p>
                     <p class="text-sm lg:text-md">
                         <%= field.body %>
                     </p>
-                </div>
+                </li>
             <% end %>
             <% if project.thumbnail.attached? %>
                 <%= image_tag project.thumbnail.variant(resize_to_limit: [100,100]), class: "rounded-lg w-20 h-20"%>
             <% end %>
             <div class="card-actions" >
+                <% unless project.article.nil? || project.article.empty? %>
+                <%= link_to "Read", project_path(project.id), data: { turbo: false }, class: "btn btn-secondary btn-sm lg:btn-md font-bold" %>
+                <% end %>
             </div>
-        </div>
+        </ul>
+
     </div>
 </div>
