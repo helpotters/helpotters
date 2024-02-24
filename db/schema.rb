@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2023_08_25_211245) do
+ActiveRecord::Schema.define(version: 2024_02_22_212944) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -118,14 +118,16 @@ ActiveRecord::Schema.define(version: 2023_08_25_211245) do
   end
 
   create_table "projects", force: :cascade do |t|
-    t.string "title", null: false
-    t.string "subtitle", null: false
+    t.string "company", null: false
+    t.string "job_title", null: false
+    t.integer "section_id", null: false
     t.string "link"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.bigint "section_id", null: false
     t.text "article"
-    t.index ["section_id"], name: "index_projects_on_section_id"
+    t.date "start_date"
+    t.date "end_date"
+    t.text "job_type"
   end
 
   create_table "sections", force: :cascade do |t|
@@ -137,5 +139,4 @@ ActiveRecord::Schema.define(version: 2023_08_25_211245) do
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
   add_foreign_key "fields", "projects"
-  add_foreign_key "projects", "sections"
 end

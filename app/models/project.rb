@@ -4,28 +4,20 @@
 #
 #  id         :bigint           not null, primary key
 #  article    :text
+#  company    :string           not null
 #  end_date   :date
+#  job_title  :string           not null
 #  job_type   :text
 #  link       :string
 #  start_date :date
-#  subtitle   :string           not null
-#  title      :string           not null
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
-#  section_id :bigint           not null
-#
-# Indexes
-#
-#  index_projects_on_section_id  (section_id)
-#
-# Foreign Keys
-#
-#  fk_rails_...  (section_id => sections.id)
+#  section_id :integer          not null
 #
 class Project < ApplicationRecord
   has_many_attached :images
   has_one_attached :thumbnail
-  validates :title, :subtitle, :section_id, presence: true
+  validates :company, :job_title, :section_id, presence: true
 
   belongs_to :section, touch: true
   has_many :fields
