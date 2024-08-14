@@ -5,28 +5,28 @@
         <header class="flex flex-col gap-2 py-2">
             <div id="job-titles" class="flex justify-between items-center">
                 <h2 class="text-sm lg:text-xl font-bold font-juana text-secondary">
-                    <%= project.job_title %>
+                    <%= project.subtitle %>
                 </h2>
                 <% unless project.link.empty? %>
                     <a href="<%= project.link %>" class="flex gap-2" target="_blank">
                         <%= heroicon "link" , options: { class: "w-6 fill-black dark:fill-white" } %>
                         <h3 class="italic text-sm lg:text-xl">
-                            <%= project.company%>
+                            <%= project.title %>
                         </h3>
                     </a>
                 <% else %>
                     <h3 class="italic text-sm lg:text-xl">
-                        <%= project.company %>
+                        <%= project.title %>
                     </h3>
                 <% end %>
             </div>
             <div id="job-details" class="flex justify-between uppercase tracking-tight text-alt-base italic items-center -my-2">
                 <h3 class="text-sm lg:text-md">
-                    <%= project.job_type%>
+                    <%= project.job_type %>
                 </h3>
                 <h3 class="text-sm lg:text-md">
-                    <%= project.start_date.strftime("%B, %Y") %> -
-                    <%= project.end_date ? project.end_date.strftime("%B, %Y") : "ONGOING" %>
+                    <%= project.start_date&.strftime("%B, %Y") %> -
+                    <%= project.end_date ? project.end_date&.strftime("%B, %Y") : "ONGOING" %>
                 </h3>
             </div>
 
