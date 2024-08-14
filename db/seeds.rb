@@ -9,18 +9,19 @@
 # Seed data for Work Experience
 experience = Section.create(title: "Work Experience")
 
-project1 = Project.create(title: "avohq.io", subtitle: "Contract", link: "avohq.io", section_id: experience.id)
+project1 = Project.create(title: "avohq.io", subtitle: "Contract", link: "avohq.io", section_id: experience.id, start_date: Date.parse("May 2023"), end_date: Date.parse("April 2023"))
 project1_description = Field.create(project_id: project1.id, title: "Contribution", body: "Added a GPS coordinates display via the Mapbox API")
 
-project2 = Project.create(title: "AdsInsights", subtitle: "Consultant", link: "", section_id: experience.id)
+project2 = Project.create(title: "AdsInsights", subtitle: "Consultant", link: "", section_id: experience.id, start_date: Date.parse("April 2023"), end_date: Date.parse("April 2023"))
 project2_description = Field.create(project_id: project2.id, title: "Consultation", body: "Assisted a dev team with upgrading their Ruby on Rails app and taught lead dev about the pros and cons of different approaches to the asset pipeline.")
 
-project3 = Project.create(title: "Fly.io", subtitle: "Contribution", link: "", section_id: experience.id)
+project3 = Project.create(title: "Fly.io", subtitle: "Contribution", link: "", section_id: experience.id, start_date: Date.parse("December 2022"), end_date: Date.parse("December 2022"))
 project3_description = Field.create(project_id: project3.id, title: "Contribution", body: "Coded the Rails-API detection feature on their flyctl commandline deployment tool.")
 project3_context = Field.create(project_id: project3.id, title: "Context", body: "This was an unpaid role, but this feature is running in production.")
 
-project4 = Project.create(title: "Rechated", subtitle: "Freelancer", link: "", section_id: experience.id)
+project4 = Project.create(title: "Rechated", subtitle: "Freelancer", link: "", section_id: experience.id, start_date: Date.parse("May 2023"), end_date: Date.parse("June 2023"))
 project4_description = Field.create(project_id: project4.id, title: "Contribution", body: "Hired as a frontend developer in an early-stage startup. Prototyped landing page designs in Figma and implemented them in TailwindCSS. Also worked on creating an admin dashboard for interacting with OpenAI processes.")
+
 
 # Seed data for Personal Projects
 personal_projects = Section.create(title: "Personal Projects")
