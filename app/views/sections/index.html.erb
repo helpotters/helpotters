@@ -3,7 +3,7 @@
         <% cache section do  %>
             <section class="justify-center lg:justify-left gap-2 lg:px-40">
                 <%= render SectionHeaderComponent.new title: section.title %>
-                <% section.projects.order('start_date ASC NULLS LAST').each do |project| %>
+                <% section.projects.order('start_date DESC NULLS LAST').each do |project| %>
                     <% cache project do %>
                         <%= render partial: "projects/project" , locals: {project: project} %>
                     <% end %>
