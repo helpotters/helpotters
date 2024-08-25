@@ -1,6 +1,5 @@
 <turbo-frame id="sections">
     <% @sections.each do |section| %>
-        <% cache section do  %>
             <section class="justify-center lg:justify-left gap-2 lg:px-40">
                 <%= render SectionHeaderComponent.new title: section.title %>
                 <% section.projects.order('start_date DESC NULLS LAST').each do |project| %>
@@ -9,6 +8,5 @@
                     <% end %>
                 <% end %>
             </section>
-        <% end %>
     <% end %>
 </turbo-frame>
