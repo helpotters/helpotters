@@ -1,5 +1,5 @@
 class Avo::Resources::Project < Avo::BaseResource
-  self.title = :company
+  self.title = :title
   self.includes = []
   self.link_to_child_resource = true
   # self.search_query = -> do
@@ -10,7 +10,6 @@ class Avo::Resources::Project < Avo::BaseResource
     field :id, as: :id
 
     field :title, as: :text
-    field :job_title, as: :text
     field :subtitle, as: :text
 
     field :start_date, as: :date
