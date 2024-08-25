@@ -8,7 +8,7 @@ class Avo::Resources::Field < Avo::BaseResource
   def fields
     field :id, as: :id
     field :title, as: :text
-    # field :body, as: :textarea
-    # field :project, as: :belongs_to
+    field :body, as: :textarea
+    field :project, as: :belongs_to
   end
 end
